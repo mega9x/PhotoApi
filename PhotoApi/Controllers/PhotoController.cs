@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Reflection.Metadata.Ecma335;
+using Microsoft.AspNetCore.Mvc;
 using Models;
 using PhotoApi.Services;
 
@@ -15,16 +16,20 @@ public class PhotoController : Controller
         _logger = logger;
         _photoService = photoService;
     }
-
-    [HttpPost("get", Name = "GetPhoto")]
-    public ActionResult<string> GetPhoto(PhotoRequest request)
+    // 获取图片
+    [HttpPost("GetPhoto")]
+    public ActionResult<IEnumerable<string>> GetPhoto(PhotoRequest request)
     {
-        
-        return Ok("");
+        var photos = _photoService.GetPhotos(request);
+        if (!photos.Any())
+        {
+            return BadRequest("没有找到与查询匹配的图片");
+        }
+        return Ok(photos);
     }
-
-    [HttpPost("refresh")]
-    public IActionResult RefreshPhoto(List<PhotoList> list)
+    // 上传图片
+    [HttpPost("Upload")]
+    public IActionResult UploadPhotos(List<PhotoList> list)
     {
         return Ok();
     }

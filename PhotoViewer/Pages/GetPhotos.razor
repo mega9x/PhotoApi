@@ -1,0 +1,156 @@
+﻿@page "/counter"
+@using PhotoViewer.Services
+@using Models
+@using ConstStr
+@using System.Security.Cryptography
+@inject Config Config
+
+<PageTitle>Counter</PageTitle>
+
+<div id="app">
+    <h1 id="title">* 我是外国佬.jpg</h1>
+    <div id="form">
+        <div class="single-input-container">
+            <div class="keyword">性别</div>
+            <select class="single-input" @bind="Request.Gender">
+                <option selected="selected" value="">随机
+                </option>
+                <option value="@Gender.Male">@Gender.Male</option>
+                <option value="@Gender.Female">@Gender.Female</option>
+            </select>
+        </div>
+        <div class="single-input-container">
+            <div class="keyword">年龄</div>
+            <select class="single-input" @bind="Request.Age">
+                <option selected="selected" value="">随机</option>
+                <option value="@AgeRange.Old">@AgeRange.Old</option>
+                <option value="@AgeRange.MidAged">@AgeRange.MidAged</option>
+                <option value="@AgeRange.Young">@AgeRange.Young</option>
+            </select>
+        </div>
+        <div class="single-input-container">
+            <div class="keyword">数量</div>
+            <input type="number" class="single-input" value="@Request.Num" oninput="if(value>100)value=100" />
+        </div>
+        <div class="single-input-container">
+            <div class="keyword">关键词(可选)</div>
+            <input class="single-input" value="@Request.Name"/>
+        </div>
+        @if (Loaded)
+        {
+            <button class="input-button" @onclick="">
+                获取靓照
+            </button>
+        }
+        else
+        {
+            <button class="input-button-disabled">
+                靓照获取中
+            </button>
+        }
+    </div>
+    <div id="result">
+        @foreach (var photo in List.Links)
+        {
+            <img src=@photo alt="我不明白为什么这里一定要填警告，你可以放心，这里没有任何警告，只有可能会骗你钱"/>
+        }
+    </div>
+</div>
+
+<style type="text/css">
+    #app {
+        color: #464646;
+    }
+
+    #title {
+        background-color: #d4d4d4;
+        border-radius: 20px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-bottom: 15px;
+    }
+
+    #form {
+        display: flex;
+        background-color: #e9e9e9;
+        border-radius: 20px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-bottom: 15px;
+    }
+
+    .input-button {
+        width: 120px;
+        border: 0px;
+        padding: 5px;
+        background-color: #649bda;
+        color: rgb(238, 238, 238);
+        transition: 0.15s;
+        border-radius: 5px;
+        font-weight: 600;
+        font-family: '黑体', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .input-button-disabled {
+        width: 120px;
+        border: 0px;
+        padding: 5px;
+        color: rgb(255, 255, 255);
+        background-color: #5e8ec5;
+        transition: 0.15s;
+        border-radius: 5px;
+        font-weight: 600;
+        font-family: '黑体', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .input-button:hover {
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        background-color: #5e8ec5;
+        font-family: '黑体';
+        transform: scale(1.15);
+    }
+
+    .single-input {
+        margin-left: 8px;
+        margin-right: 10px;
+        width: 120px;
+        height: 28px;
+    }
+
+    .single-input-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .input-button:active {
+        color: rgb(63, 63, 63);
+        background-color: #c0c0c0;
+        transform: scale(1.05);
+    }
+</style>
+
+@code {
+
+    PhotoRequest Request = new();
+    PhotoList List = new();
+    bool Loaded = true;
+
+    async Task LoadImages()
+    {
+        if (Request.Age.Length <= 0)
+        {
+            Request.AgeRandomizer();
+        }
+        if (Request.Gender.Length <= 0)
+        {
+            Request.GenderRandomizer();
+        }
+        Loaded = false;
+        var client = new HttpClient();
+        client.BaseAddress = new Uri(Config.FontendConfig.ApiRoot);
+        var response = await client.PostAsJsonAsync<PhotoRequest>(Config.FontendConfig.Endpoint, Request);
+        List = await response.Content.ReadFromJsonAsync<PhotoList>() ?? new();
+        Loaded = true;
+    }
+}

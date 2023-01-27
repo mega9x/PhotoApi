@@ -123,6 +123,10 @@
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
               "version": "[104.0.5112.7900, )"
+            },
+            "Tomlyn": {
+              "target": "Package",
+              "version": "[0.16.2, )"
             }
           },
           "imports": [
@@ -173,7 +177,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\workspace\\projects\\project\\PhotoApi\\ConstStr\\ConstStr.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\PhotoApi\\ConstStr\\ConstStr.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

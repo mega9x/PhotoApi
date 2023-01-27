@@ -89,6 +89,19 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Tomlyn/0.16.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Tomlyn.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Tomlyn.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "ConstStr/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -102,6 +115,9 @@
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ConstStr": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Models.dll": {}
         },
@@ -237,6 +253,23 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
+    "Tomlyn/0.16.2": {
+      "sha512": "NVvOlecYWwhqQdE461UGHUeJ1t2DtGXU+L00LgtBTgWA16bUmMhUIRaCpSkRX5HqAeid/KlXmdH7Sul0mr6HJA==",
+      "type": "package",
+      "path": "tomlyn/0.16.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Tomlyn.dll",
+        "lib/net6.0/Tomlyn.xml",
+        "lib/netstandard2.0/Tomlyn.dll",
+        "lib/netstandard2.0/Tomlyn.xml",
+        "logo.png",
+        "readme.md",
+        "tomlyn.0.16.2.nupkg.sha512",
+        "tomlyn.nuspec"
+      ]
+    },
     "ConstStr/1.0.0": {
       "type": "project",
       "path": "../ConstStr/ConstStr.csproj",
@@ -252,7 +285,8 @@
     "net6.0": [
       "ConstStr >= 1.0.0",
       "Models >= 1.0.0",
-      "Swashbuckle.AspNetCore >= 6.2.3"
+      "Swashbuckle.AspNetCore >= 6.2.3",
+      "Tomlyn >= 0.16.2"
     ]
   },
   "packageFolders": {
@@ -310,6 +344,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"
+          },
+          "Tomlyn": {
+            "target": "Package",
+            "version": "[0.16.2, )"
           }
         },
         "imports": [

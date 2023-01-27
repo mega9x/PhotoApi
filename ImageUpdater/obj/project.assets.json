@@ -48,6 +48,19 @@
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
       },
+      "Tomlyn/0.16.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Tomlyn.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Tomlyn.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "ConstStr/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -61,6 +74,9 @@
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ConstStr": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Models.dll": {}
         },
@@ -161,6 +177,23 @@
         "selenium.webdriver.chromedriver.nuspec"
       ]
     },
+    "Tomlyn/0.16.2": {
+      "sha512": "NVvOlecYWwhqQdE461UGHUeJ1t2DtGXU+L00LgtBTgWA16bUmMhUIRaCpSkRX5HqAeid/KlXmdH7Sul0mr6HJA==",
+      "type": "package",
+      "path": "tomlyn/0.16.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Tomlyn.dll",
+        "lib/net6.0/Tomlyn.xml",
+        "lib/netstandard2.0/Tomlyn.dll",
+        "lib/netstandard2.0/Tomlyn.xml",
+        "logo.png",
+        "readme.md",
+        "tomlyn.0.16.2.nupkg.sha512",
+        "tomlyn.nuspec"
+      ]
+    },
     "ConstStr/1.0.0": {
       "type": "project",
       "path": "../ConstStr/ConstStr.csproj",
@@ -178,7 +211,8 @@
       "Models >= 1.0.0",
       "Selenium.Support >= 4.7.0",
       "Selenium.WebDriver >= 4.7.0",
-      "Selenium.WebDriver.ChromeDriver >= 104.0.5112.7900"
+      "Selenium.WebDriver.ChromeDriver >= 104.0.5112.7900",
+      "Tomlyn >= 0.16.2"
     ]
   },
   "packageFolders": {
@@ -244,6 +278,10 @@
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
             "version": "[104.0.5112.7900, )"
+          },
+          "Tomlyn": {
+            "target": "Package",
+            "version": "[0.16.2, )"
           }
         },
         "imports": [

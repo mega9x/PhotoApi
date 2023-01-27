@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Models/1.0.0": {
+        "dependencies": {
+          "ConstStr": "1.0.0"
+        },
         "runtime": {
           "Models.dll": {}
+        }
+      },
+      "ConstStr/1.0.0": {
+        "runtime": {
+          "ConstStr.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConstStr/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

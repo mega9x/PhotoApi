@@ -15,3 +15,9 @@ public class PhotoList
     [JsonPropertyName("images")]
     public List<string> Links { get; set; }
 }
+
+public class YandexImgUrl
+{
+    [JsonPropertyName("url")]
+    public string url { get; set; }
+}

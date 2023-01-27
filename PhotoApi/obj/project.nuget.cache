@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eWx2IB/W5vSQtUjNNX7NNPd7EZu+CISqTvbHRTQr3CxgcYm7B+t2aMgr8zXIMop+cGNloy16TX7Y1AvRUwrqXQ==",
+  "dgSpecHash": "dVjkqcLc9+77pEzCVZJvp6PB29swPXTzLWbW3WjESdUkDl3LmQzMN2r4NrdrwwGXBihhl8pvps+7kLmSD8ca+w==",
   "success": true,
   "projectFilePath": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,8 @@
     "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\tomlyn\\0.16.2\\tomlyn.0.16.2.nupkg.sha512"
   ],
   "logs": []
 }

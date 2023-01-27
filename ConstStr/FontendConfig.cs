@@ -1,13 +1,17 @@
-﻿namespace ConstStr;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class FontendConfig
+namespace ConstStr
 {
-    #region Root
-    public const string IMAGE_ROOT = "./基底图片";
-    #endregion
-
-    #region FileName
-    public const string IMAGE_LIST_CONFIG = "配置.txt";
-    public const string IMAGE_LIST = "图片列表.txt";
-    #endregion
+    public class FontendConfig
+    {
+        #region Root
+        public const string CONFIG_ROOT = "./config";
+        #endregion
+        public const string CONFIG_NAME = "config.toml";
+        public static string GetConfigPath() => Path.GetFullPath($"{CONFIG_ROOT}/{CONFIG_NAME}");
+    }
 }

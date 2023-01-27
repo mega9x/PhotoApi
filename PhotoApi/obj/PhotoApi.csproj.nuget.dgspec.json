@@ -92,7 +92,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\workspace\\projects\\project\\PhotoApi\\ConstStr\\ConstStr.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\PhotoApi\\ConstStr\\ConstStr.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -175,6 +179,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "Tomlyn": {
+              "target": "Package",
+              "version": "[0.16.2, )"
             }
           },
           "imports": [
