@@ -8,6 +8,10 @@ namespace PhotoViewer.Services
         public FontendConfig FontendConfig { get; init; }
         public Config()
         {
+            if (!Directory.Exists(ConstStr.FontendConfig.ConfigRoot))
+            {
+                Directory.CreateDirectory(ConstStr.FontendConfig.ConfigRoot);
+            }
             if (!File.Exists(ConstStr.FontendConfig.GetConfigPath()))
             {
                 FontendConfig = new FontendConfig();

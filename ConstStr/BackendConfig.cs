@@ -7,9 +7,9 @@ public class BackendConfig
     public const string LIB_ROOT = "./结果";
     #endregion
     #region Images
-    public const string IMG_PATH = $"{LIB_ROOT}/Images.json";
-    public const string ARCHIVE_PATH = $"{LIB_ROOT}/归档";
-    public const string ARCHIVE_FILE = $"{ARCHIVE_PATH}/images_date.json";
+    public const string ImgPath = $"{LIB_ROOT}/Images.json";
+    public const string ArchivePath = $"{LIB_ROOT}/归档";
+    public const string ArchiveFile = $"{ArchivePath}/images_date.json";
 
     #endregion
 }

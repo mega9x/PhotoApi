@@ -9,9 +9,9 @@ namespace ConstStr
     public class FontendConfig
     {
         #region Root
-        public const string CONFIG_ROOT = "./config";
+        public const string ConfigRoot = "./config";
         #endregion
-        public const string CONFIG_NAME = "config.toml";
-        public static string GetConfigPath() => Path.GetFullPath($"{CONFIG_ROOT}/{CONFIG_NAME}");
+        public const string ConfigName = "config.toml";
+        public static string GetConfigPath() => Path.GetFullPath($"{ConfigRoot}/{ConfigName}");
     }
 }

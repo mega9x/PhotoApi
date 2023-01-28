@@ -8,15 +8,16 @@ public class PhotoRequest
     /// <summary>
     /// 年龄
     /// </summary>
-    public string Age { get; set; }
+    public string? Age { get; set; } = "";
+
     /// <summary>
     /// 性别
     /// </summary>
-    public string Gender { get; set; }
+    public string? Gender { get; set; } = "";
     /// <summary>
     /// 其他关键词
     /// </summary>
-    public string Name { get; set; } = "";
+    public string? Name { get; set; } = "";
     /// <summary>
     /// 图片数量
     /// </summary>

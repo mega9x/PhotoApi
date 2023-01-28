@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConstStr", "ConstStr\ConstS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageUpdater", "ImageUpdater\ImageUpdater.csproj", "{6C552E85-2235-4020-A4CF-CAD2D39375C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoViewer", "PhotoViewer\PhotoViewer.csproj", "{6C0CE094-370A-491B-81B9-BC811BD1B7DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoViewer", "PhotoViewer\PhotoViewer.csproj", "{6C0CE094-370A-491B-81B9-BC811BD1B7DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Sandbox\Sandbox.csproj", "{3912AFCD-E0B9-44D4-8F3E-E2C4C256AAF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6C0CE094-370A-491B-81B9-BC811BD1B7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C0CE094-370A-491B-81B9-BC811BD1B7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C0CE094-370A-491B-81B9-BC811BD1B7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3912AFCD-E0B9-44D4-8F3E-E2C4C256AAF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3912AFCD-E0B9-44D4-8F3E-E2C4C256AAF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3912AFCD-E0B9-44D4-8F3E-E2C4C256AAF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3912AFCD-E0B9-44D4-8F3E-E2C4C256AAF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

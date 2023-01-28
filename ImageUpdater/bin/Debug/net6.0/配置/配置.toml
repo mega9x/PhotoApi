@@ -1,0 +1,3 @@
+api_root = "http://127.0.0.1"
+upload_endpoint = "/Photo/upload"
+fetch_samples_endpoint = "/Photo/GetSamples"

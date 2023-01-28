@@ -12,7 +12,7 @@
     <div id="form">
         <div class="single-input-container">
             <div class="keyword">性别</div>
-            <select class="single-input" @bind="Request.Gender">
+            <select class="single-input" @bind="@Request.Gender">
                 <option selected="selected" value="">随机
                 </option>
                 <option value="@Gender.Male">@Gender.Male</option>
@@ -21,7 +21,7 @@
         </div>
         <div class="single-input-container">
             <div class="keyword">年龄</div>
-            <select class="single-input" @bind="Request.Age">
+            <select class="single-input" @bind="@Request.Age">
                 <option selected="selected" value="">随机</option>
                 <option value="@AgeRange.Old">@AgeRange.Old</option>
                 <option value="@AgeRange.MidAged">@AgeRange.MidAged</option>
@@ -30,7 +30,7 @@
         </div>
         <div class="single-input-container">
             <div class="keyword">数量</div>
-            <input type="number" class="single-input" value="@Request.Num" oninput="if(value>100)value=100" />
+            <input type="number" class="single-input" value="@Request.Num" oninput="if(value>100)value=100; if(value<0) value=1;" />
         </div>
         <div class="single-input-container">
             <div class="keyword">关键词(可选)</div>
@@ -38,7 +38,7 @@
         </div>
         @if (Loaded)
         {
-            <button class="input-button" @onclick="">
+            <button class="input-button" @onclick="@LoadImages">
                 获取靓照
             </button>
         }
@@ -50,7 +50,7 @@
         }
     </div>
     <div id="result">
-        @foreach (var photo in List.Links)
+        @foreach (var photo in _categoryBucket.Links)
         {
             <img src=@photo alt="我不明白为什么这里一定要填警告，你可以放心，这里没有任何警告，只有可能会骗你钱"/>
         }
@@ -133,11 +133,18 @@
 @code {
 
     PhotoRequest Request = new();
-    PhotoList List = new();
+    PhotoCategoryBucket _categoryBucket = new();
     bool Loaded = true;
 
     async Task LoadImages()
     {
+        Loaded = false;
+        if (!(Request.Age.Any() && Request.Age.Any()))
+        {
+            await FetchRandomPhotos();
+            Loaded = true;
+            return;
+        }
         if (Request.Age.Length <= 0)
         {
             Request.AgeRandomizer();
@@ -146,11 +153,26 @@
         {
             Request.GenderRandomizer();
         }
-        Loaded = false;
+        await FetchPhotos();
+        Loaded = true;
+    }
+
+    async Task FetchPhotos()
+    {
         var client = new HttpClient();
         client.BaseAddress = new Uri(Config.FontendConfig.ApiRoot);
-        var response = await client.PostAsJsonAsync<PhotoRequest>(Config.FontendConfig.Endpoint, Request);
-        List = await response.Content.ReadFromJsonAsync<PhotoList>() ?? new();
-        Loaded = true;
+        var response = await client.PostAsJsonAsync<PhotoRequest>(Config.FontendConfig.GetPhotoEndpoint, Request);
+        _categoryBucket = await response.Content.ReadFromJsonAsync<PhotoCategoryBucket>() ?? new();
+    }
+
+    async Task FetchRandomPhotos()
+    {
+        var client = new HttpClient();
+        client.BaseAddress = new Uri(Config.FontendConfig.ApiRoot);
+        var response = await client.GetFromJsonAsync<List<string>>($"{Config.FontendConfig.GetRandomPhotoEndpoint}?{Request.Num}");
+        _categoryBucket = new PhotoCategoryBucket
+        {
+            Links = response ?? new List<string>(),
+        };
     }
 }

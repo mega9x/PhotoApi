@@ -70,3 +70,4 @@ E:\workspace\projects\project\PhotoApi\PhotoApi\obj\Debug\net6.0\refint\PhotoApi
 E:\workspace\projects\project\PhotoApi\PhotoApi\obj\Debug\net6.0\PhotoApi.pdb
 E:\workspace\projects\project\PhotoApi\PhotoApi\obj\Debug\net6.0\PhotoApi.genruntimeconfig.cache
 E:\workspace\projects\project\PhotoApi\PhotoApi\obj\Debug\net6.0\ref\PhotoApi.dll
+E:\workspace\projects\project\PhotoApi\PhotoApi\bin\Debug\net6.0\Tomlyn.dll

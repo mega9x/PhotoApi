@@ -27,10 +27,40 @@ public class PhotoController : Controller
         }
         return Ok(photos);
     }
+    // 随机获取图片
+    [HttpGet("GetRandomPhoto")]
+    public ActionResult<IEnumerable<string>> GetPhoto(int num)
+    {
+        var photos = _photoService.GetPhotosRandomly(num);
+        if (!photos.Any())
+        {
+            return BadRequest("没有找到与查询匹配的图片");
+        }
+        return Ok(photos);
+    }
     // 上传图片
     [HttpPost("Upload")]
-    public IActionResult UploadPhotos(List<PhotoList> list)
+    public IActionResult UploadPhotos(IEnumerable<PhotoCategoryBucket> list)
     {
+        _photoService.UpdatePhotos(list);
         return Ok();
+    }
+    // 获取所有类别的随机采样
+    [HttpGet("GetSamples")]
+    public ActionResult<IEnumerable<PhotoCategoryBucket>> GetSamples(int eachNum)
+    {
+        var num = eachNum;
+        if (eachNum > 20)
+        {
+            num = 20;
+        }
+        try
+        {
+            return Ok(_photoService.BuildNewSamples(num));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest("无法获取采样");
+        }
     }
 }

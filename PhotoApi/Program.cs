@@ -10,9 +10,9 @@ if (!Directory.Exists(BackendConfig.CONFIG_ROOT))
 {
     Directory.CreateDirectory(BackendConfig.CONFIG_ROOT);
 }
-if (!Directory.Exists(BackendConfig.ARCHIVE_PATH))
+if (!Directory.Exists(BackendConfig.ArchivePath))
 {
-    Directory.CreateDirectory(BackendConfig.ARCHIVE_PATH);
+    Directory.CreateDirectory(BackendConfig.ArchivePath);
 }
 var builder = WebApplication.CreateBuilder(args);
 
