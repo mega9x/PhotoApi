@@ -104,12 +104,12 @@ namespace PhotoApi.Services
             foreach (var photo in _photoRepository)
             {
                 if (photo.Clone() is not PhotoCategoryBucket singleList) continue;
+                var requestNum = num > photo.Links.Count ? num : photo.Links.Count;
                 singleList.Links.Clear();
-                for (var i = 0; i <= num; i++)
+                for (var i = 0; i <= requestNum; i++)
                 {
                     singleList.Links.Add(photo.Links[RandomNumberGenerator.GetInt32(0, photo.Links.Count)]);
                 }
-
                 list.Add(singleList);
             }
             return list;

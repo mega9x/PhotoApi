@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "No+z+dLEtjb/mcWUlKmZiWiD+C0AJukw0wVaGlVk3k0=",
+  "Hash": "Giq7cDmpRCtM9PzvYY0XXpKd4ERByVbhJx9nOmGGPX0=",
   "Source": "PhotoViewer",
   "BasePath": "_content/PhotoViewer",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoViewer\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "PhotoViewer",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoViewer\\wwwroot\\",
+      "BasePath": "_content/PhotoViewer",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoViewer\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
@@ -185,23 +202,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
-    },
-    {
-      "Identity": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoViewer\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "PhotoViewer",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoViewer\\wwwroot\\",
-      "BasePath": "_content/PhotoViewer",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoViewer\\wwwroot\\css\\open-iconic\\ICON-LICENSE",

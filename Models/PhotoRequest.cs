@@ -9,7 +9,6 @@ public class PhotoRequest
     /// 年龄
     /// </summary>
     public string? Age { get; set; } = "";
-
     /// <summary>
     /// 性别
     /// </summary>

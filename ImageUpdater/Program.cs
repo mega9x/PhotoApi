@@ -21,7 +21,8 @@ var client = new HttpClient()
     BaseAddress = new Uri(config.ApiRoot),
 };
 // 图片组列表
-var bucketList = (await FetchSamples(client, config, 10)).ToList();
+// var bucketList = (await FetchSamples(client, config, 20)).ToList();
+var bucketList = new List<PhotoCategoryBucket>();
 var dir = new DirectoryInfo(UpdaterConfig.ImageRoot);
 var child = dir.GetFiles();
 if (child.Any())
@@ -36,11 +37,11 @@ if (child.Any())
         var imageList = File.ReadAllLines(c.FullName);
         // 合并同类项
         if (!imageList.Any()) continue;
-        var found = bucketList.First(x => x.Age == age && x.Gender == gender && x.Name == key);
-        if (found is not null)
-        {
-            found.Links.AddRange(imageList);
-        }
+        // var found = bucketList.First(x => x.Age == age && x.Gender == gender && x.Name == key);
+        // if (found is not null)
+        // {
+        //     found.Links.AddRange(imageList);
+        // }
         else
         {
             var photoList = new PhotoCategoryBucket
@@ -96,12 +97,24 @@ foreach (var bucket in bucketList)
                 }
                 element.Click();
                 var OpenButton = driver.FindElements(By.CssSelector("[class='Button2 Button2_size_m Button2_type_link Button2_view_action Button2_width_max MMViewerButtons-OpenImage']"));  //黄色的Open Button按钮元素
+                var img = driver.FindElements(By.CssSelector(".MMImage-Origin"));
                 if (OpenButton.Count == 0)
                 {
                     OpenButton = driver.FindElements(By.CssSelector("[class='Button2 Button2_size_m Button2_type_link Button2_view_default Button2_width_max MMViewerButtons-OpenImage']"));  //灰色的Oen Button按钮元素
                 }
-                bucket.Links.Add(OpenButton[0].GetAttribute("href"));
-                Console.WriteLine(OpenButton[0].GetAttribute("href"));
+                
+                var originalLink = OpenButton[0].GetAttribute("href");
+                var shitLink = img[0].GetAttribute("src");
+                if (!originalLink.Contains(".jpg") && !originalLink.Contains(".png")) // 这样好
+                {
+                    bucket.Links.Add(shitLink);
+                    Console.WriteLine(shitLink);
+                }
+                else
+                {
+                    bucket.Links.Add(originalLink);
+                    Console.WriteLine(originalLink);
+                }
                 var CloseButton = driver.FindElement(By.CssSelector("[class='MMViewerModal-Close']"));  //右上角灰色的关闭按钮元素
                 CloseButton.Click();
             }
