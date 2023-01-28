@@ -12,6 +12,7 @@ public class UpdaterConfig
     #endregion
     #region Api
     public string UploadEndpoint { get; set; } = "/Photo/upload";
+    public string UploadBucketEndpoint { get; set; } = "/photo/UploadByBucket";
     public string FetchSamplesEndpoint { get; init; } = "/Photo/GetSamples";
     #endregion
 }

@@ -1,6 +1,7 @@
 ﻿using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.Request;
 using PhotoApi.Services;
 
 namespace PhotoApi.Controllers;
@@ -43,6 +44,14 @@ public class PhotoController : Controller
     public IActionResult UploadPhotos(IEnumerable<PhotoCategoryBucket> list)
     {
         _photoService.UpdatePhotos(list);
+        return Ok();
+    }
+    // 逐个上传图片桶
+    [HttpPost("UploadByBucket")]
+    public IActionResult UploadByBucket(PhotoBucketRequest request)
+    {
+        _photoService.AddBucketOneByOne(request.Bucket);
+        if(!request.IsContinue) _photoService.Save();
         return Ok();
     }
     // 获取所有类别的随机采样

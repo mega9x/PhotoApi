@@ -12,7 +12,8 @@ namespace PhotoApi.Services
 {
     public class PhotoService
     {
-        private List<PhotoCategoryBucket> _photoRepository;
+        private List<PhotoCategoryBucket> _photoRepository = new();
+        private List<PhotoCategoryBucket> _newPhotoRepository = new();
         public ILogger<PhotoService> Logger { get; set; }
         public PhotoService(ILogger<PhotoService> logger)
         {
@@ -69,11 +70,27 @@ namespace PhotoApi.Services
         /// <param name="list"></param>
         public void UpdatePhotos(IEnumerable<PhotoCategoryBucket> list)
         {
-            
-            File.WriteAllText(BackendConfig.ArchiveFile.Replace("date",DateTime.Today.ToString($"yyyy-M-d dddd {RandomNumberGenerator.GetInt32(0, 9999999)}")), JsonSerializer.Serialize(_photoRepository));
-            _photoRepository = list.ToList();
+            _newPhotoRepository = list.ToList();
+            Save();
+        }
+        /// <summary>
+        /// 按桶更新
+        /// </summary>
+        /// <param name="photoCategoryBucket"></param>
+        public void AddBucketOneByOne(PhotoCategoryBucket photoCategoryBucket)
+        {
+            _newPhotoRepository.Add(photoCategoryBucket);
+        }
+        /// <summary>
+        /// 保存
+        /// </summary>
+        public void Save()
+        {
+            File.WriteAllText(BackendConfig.ArchiveFile.Replace("date", DateTime.Today.ToString($"yyyy-M-d dddd {RandomNumberGenerator.GetInt32(0, 9999999)}")), JsonSerializer.Serialize(_photoRepository));
+            _photoRepository = _newPhotoRepository.ToList();
             File.Delete(BackendConfig.ImgPath);
-            File.WriteAllText(BackendConfig.ImgPath,JsonSerializer.Serialize(_photoRepository));
+            File.WriteAllText(BackendConfig.ImgPath, JsonSerializer.Serialize(_photoRepository));
+            _newPhotoRepository.Clear();
         }
         /// <summary>
         /// 随机抽取样本
@@ -83,14 +100,16 @@ namespace PhotoApi.Services
         public IEnumerable<PhotoCategoryBucket> BuildNewSamples(int num)
         {
             var list = new List<PhotoCategoryBucket>();
+            if (!_photoRepository.Any()) return new List<PhotoCategoryBucket>();
             foreach (var photo in _photoRepository)
             {
-                var singleList = photo.Clone() as PhotoCategoryBucket;
+                if (photo.Clone() is not PhotoCategoryBucket singleList) continue;
                 singleList.Links.Clear();
                 for (var i = 0; i <= num; i++)
                 {
                     singleList.Links.Add(photo.Links[RandomNumberGenerator.GetInt32(0, photo.Links.Count)]);
                 }
+
                 list.Add(singleList);
             }
             return list;

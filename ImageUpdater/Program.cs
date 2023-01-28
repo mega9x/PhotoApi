@@ -8,46 +8,11 @@ using System.Text.Json;
 using ConstStr;
 using ImageUpdater;
 using Models;
+using Models.Request;
 using Models.Response;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Tomlyn;
-
-//// if (!Directory.Exists(UpdaterConfig.ImageRoot))
-//// {
-////     Directory.CreateDirectory(UpdaterConfig.ImageRoot);
-////     Console.WriteLine("基底文件夹不存在, 已经新建了一个");
-////     Console.WriteLine(Path.GetFullPath(UpdaterConfig.ImageRoot));
-////     Console.ReadLine();
-////     return;
-//// }
-////
-//// // 现在开始判断文件夹是否存在，如果不存在就创建
-//// if(!Directory.Exists(UpdaterConfig.ConfigRoot))
-//// {
-////     Directory.CreateDirectory(UpdaterConfig.ConfigRoot);
-////     Console.WriteLine("配置不存在, 已经新建了一个");
-////     Console.WriteLine(Path.GetFullPath(UpdaterConfig.ConfigRoot)); // 把文件夹的整个路径打印出来, 不要让用户蒙在鼓里
-//// }
-//// // 所以现在来判断文件夹下面的配置文件是否存在，有一些情况就是有文件夹没文件的情况
-//// // 这里用模板字符串来拼接字符串，这样就不用加号了
-//// // 等等，我好像打错了
-//// // 这样就对了
-//// // 我现在把路径提取出来，方便一点
-//// var configPath = $"{UpdaterConfig.ConfigRoot}/{UpdaterConfig.ConfigFile}";
-//// if (!File.Exists(configPath))
-//// {
-////     // File.Create(configPath).Close(); 这行多余，因为 WriteAllText 函数会自动创建文件
-////     // 然后，用 toml 的库来把“拥有默认值的对象”转换成字符串
-////     var configString = Toml.FromModel(new UpdaterConfig());
-////     // 最后，把字符串写入配置文件
-////     File.WriteAllText(configPath, configString);
-//// }
-//// // 然后就是读取配置的部分. 首先把配置文件里的字符串读出来
-//// var configStr = File.ReadAllText(configPath);
-//// // 然后把字符串转换成类
-//// var config = Toml.ToModel<UpdaterConfig>(configStr);
-//// // 你结束了
 
 // 获取配置
 var config = Config.Instance.UpdaterConfig;
@@ -56,7 +21,7 @@ var client = new HttpClient()
     BaseAddress = new Uri(config.ApiRoot),
 };
 // 图片组列表
-List<PhotoCategoryBucket> list = new();
+var bucketList = (await FetchSamples(client, config, 10)).ToList();
 var dir = new DirectoryInfo(UpdaterConfig.ImageRoot);
 var child = dir.GetFiles();
 if (child.Any())
@@ -69,32 +34,36 @@ if (child.Any())
         var gender = split[1];
         var age = split[2];
         var imageList = File.ReadAllLines(c.FullName);
+        // 合并同类项
         if (!imageList.Any()) continue;
-        var photoList = new PhotoCategoryBucket
+        var found = bucketList.First(x => x.Age == age && x.Gender == gender && x.Name == key);
+        if (found is not null)
         {
-            Name = key,
-            Age = split[2],
-            Gender = gender,
-            Links = imageList.ToList(),
-        };
-        photoList.Name = c.Name;
-        list.Add(photoList);
+            found.Links.AddRange(imageList);
+        }
+        else
+        {
+            var photoList = new PhotoCategoryBucket
+            {
+                Name = key,
+                Age = split[2],
+                Gender = gender,
+                Links = imageList.ToList(),
+            };
+            photoList.Name = key;
+            bucketList.Add(photoList);
+        }
     }
-}
-else
-{
-    Console.WriteLine("未检测到图片样本文件, 即将从服务器获取样本");
-    list = (await FetchSamples(client, config, 10)).ToList();
 }
 
 Console.WriteLine("读取成功. 开始爬取.");
-var allPhotos = 0;
+var photosCount = 0;
 var driver = new ChromeDriver();
 
 // 读取分组
-foreach (var l in list)
+foreach (var bucket in bucketList)
 {
-    var originalList = l.Links;
+    var originalList = new List<string>(bucket.Links);
     foreach (var link in originalList)
     {
         var areYouOk = await SearchImage(link, driver);
@@ -131,29 +100,90 @@ foreach (var l in list)
                 {
                     OpenButton = driver.FindElements(By.CssSelector("[class='Button2 Button2_size_m Button2_type_link Button2_view_default Button2_width_max MMViewerButtons-OpenImage']"));  //灰色的Oen Button按钮元素
                 }
-                l.Links.Add(OpenButton[0].GetAttribute("href"));
-                // imgUrl.Add(OpenButton[0].GetAttribute("href"));
+                bucket.Links.Add(OpenButton[0].GetAttribute("href"));
                 Console.WriteLine(OpenButton[0].GetAttribute("href"));
                 var CloseButton = driver.FindElement(By.CssSelector("[class='MMViewerModal-Close']"));  //右上角灰色的关闭按钮元素
                 CloseButton.Click();
             }
             catch
             {
-                await Task.Delay(1000);
+                await Task.Delay(500);
                 continue;
             }
             Counts++;
         }
-        allPhotos += Counts;
+        photosCount += Counts;
         Console.WriteLine($"本次成功爬取 {Counts} 张图片");
     }
-
-    Console.WriteLine($"共爬取 {allPhotos} 张图片 上传中");
+    var uploadRequest = new PhotoBucketRequest()
+    {
+        Bucket = bucket,
+        IsContinue = true
+    };
+    if (bucketList.Last().Equals(bucket))
+    {
+        uploadRequest.IsContinue = false;
+    }
+    // 上传 bucket
+    Console.WriteLine($"目前共爬取 {photosCount} 张图片 上传中");
+    var response = await client.PostAsJsonAsync(config.UploadBucketEndpoint, uploadRequest);
+    if (!response.IsSuccessStatusCode)
+    {
+        Console.WriteLine($"发生未知错误于: {bucket.Name}-{bucket.Gender}-{bucket.Age}");
+        Console.WriteLine(response.StatusCode);
+    }
 }
+Console.WriteLine($"共爬取 {photosCount} 张图片");
 
 // var response = await ImageUpload(client, config, list);
 // Console.WriteLine($"爬取完毕. 服务器响应: {await response.Content.ReadAsStringAsync()}");
 Console.Read();
+
+async Task<bool> SearchImage(string url, IWebDriver driver)
+{
+    while (driver.Url.Contains("showcaptcha"))
+    {
+        await Task.Delay(1000);
+    }
+    var client = new HttpClient();
+    string response;
+    try
+    {
+        response = await client.GetStringAsync("https://yandex.com/images-apphost/image-download?url=" + url);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+        Console.Write("无效的图片地址. 正在跳过...");
+        Console.WriteLine($"地址: {url}");
+        return false;
+    }
+    var ImgUrl = JsonSerializer.Deserialize<YandexImgResponse>(response);
+    driver.Navigate().GoToUrl($"https://yandex.com/images/search?family=yes&rpt=imageview&url={ImgUrl.Uri}");
+    await Task.Delay(1000);
+    driver.Navigate().GoToUrl($"{driver.Url}&cbir_page=similar");
+    return true;
+}
+// 图片上传
+async Task<HttpResponseMessage> ImageUpload(HttpClient client, UpdaterConfig config, IEnumerable<PhotoCategoryBucket> list)
+{
+    var response = await client.PostAsJsonAsync<IEnumerable<PhotoCategoryBucket>>(config.UploadEndpoint, list);
+    return response;
+}
+
+// 样本获取 
+async Task<IEnumerable<PhotoCategoryBucket>> FetchSamples(HttpClient client, UpdaterConfig config, int num)
+{
+    var response = await client.GetFromJsonAsync<IEnumerable<PhotoCategoryBucket>>($"{config.FetchSamplesEndpoint}?eachNum={num}");
+    return response ?? new List<PhotoCategoryBucket>();
+}
+// 是否继续在上面就判断了，只需要判断是不是最后一个就可以，这个继续不继续已经包含在请求里面了
+// 不用写 is continue, 直接传就行了，传PhotoBucketRequest
+//async Task<bool> IsContinue (IEnumerable<PhotoCategoryBucket> list ,HttpClient client , UpdaterConfig config)
+//{
+//    var response = await client.PostAsJsonAsync<IEnumerable<PhotoCategoryBucket>>(config.UploadEndpoint, list);
+//}
+
 /*async Task LoadImgsUrls()
 {
     while (true)
@@ -239,44 +269,3 @@ static async Task<string> ImageToBase64ImageFormat(string uri)
     var bytes = await client.GetByteArrayAsync(uri);
     return "image/jpeg;base64," + Convert.ToBase64String(bytes);
 }*/
-
-//给Yandex丢图片让他下载返回下好在Yandex服务器上图片的信息的诶皮埃
-//https://yandex.com/images-apphost/image-download?url=
-async Task<bool> SearchImage(string url, IWebDriver driver)
-{
-    while (driver.Url.Contains("showcaptcha"))
-    {
-        await Task.Delay(1000);
-    }
-    var client = new HttpClient();
-    string response;
-    try
-    {
-        response = await client.GetStringAsync("https://yandex.com/images-apphost/image-download?url=" + url);
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(e.Message);
-        Console.Write("无效的图片地址. 正在跳过...");
-        Console.WriteLine($"地址: {url}");
-        return false;
-    }
-    var ImgUrl = JsonSerializer.Deserialize<YandexImgResponse>(response);
-    driver.Navigate().GoToUrl($"https://yandex.com/images/search?family=yes&rpt=imageview&url={ImgUrl.Uri}");
-    await Task.Delay(1000);
-    driver.Navigate().GoToUrl($"{driver.Url}&cbir_page=similar");
-    return true;
-}
-// 图片上传
-async Task<HttpResponseMessage> ImageUpload(HttpClient client, UpdaterConfig config, IEnumerable<PhotoCategoryBucket> list)
-{
-    var response = await client.PostAsJsonAsync<IEnumerable<PhotoCategoryBucket>>(config.UploadEndpoint, list);
-    return response;
-}
-
-// 样本获取 
-async Task<IEnumerable<PhotoCategoryBucket>> FetchSamples(HttpClient client, UpdaterConfig config, int num)
-{
-    var response = await client.GetFromJsonAsync<IEnumerable<PhotoCategoryBucket>>($"{config.FetchSamplesEndpoint}?eachNum={num}");
-    return response ?? new List<PhotoCategoryBucket>();
-}
