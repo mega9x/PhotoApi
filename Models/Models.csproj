@@ -7,7 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Config\ApiConfig.cs" />
+      <Compile Remove="Config\FontendConfig.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\ConstStr\ConstStr.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="Config\Fontend\ApiConfig.cs" />
     </ItemGroup>
 
 </Project>

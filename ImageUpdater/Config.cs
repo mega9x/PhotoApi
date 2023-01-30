@@ -1,42 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConstStr;
+﻿using ConstStr;
+using Models.Config.Updater;
 using Tomlyn;
 
 namespace ImageUpdater
 {
     public class Config
     {
-        private const string ConfigPath = $"{UpdaterConfig.ConfigRoot}/{UpdaterConfig.ConfigFile}";
+        private const string ConfigPath = $"{UpdaterConfigPath.ConfigRoot}/{UpdaterConfigPath.ConfigFile}";
         public static Config Instance = new Lazy<Config>(() => new Config()).Value;
-        public UpdaterConfig UpdaterConfig { get; private set; }
+        private ConfigRoot Root { get; set; }
         private Config()
         {
-            if (!Directory.Exists(UpdaterConfig.ImageRoot))
+            if (!Directory.Exists(UpdaterConfigPath.ImageRoot))
             {
-                Directory.CreateDirectory(UpdaterConfig.ImageRoot);
+                Directory.CreateDirectory(UpdaterConfigPath.ImageRoot);
             }
-            if (!Directory.Exists(UpdaterConfig.ConfigRoot))
+            if (!Directory.Exists(UpdaterConfigPath.ConfigRoot))
             {
-                Directory.CreateDirectory(UpdaterConfig.ConfigRoot);
+                Directory.CreateDirectory(UpdaterConfigPath.ConfigRoot);
             }
             if (!File.Exists(ConfigPath))
             {
-                var configString = Toml.FromModel(new UpdaterConfig());
+                var configString = Toml.FromModel(new ConfigRoot());
                 File.WriteAllText(ConfigPath, configString);
             }
             var configStr = File.ReadAllText(ConfigPath);
-            UpdaterConfig = Toml.ToModel<UpdaterConfig>(configStr);
+            Root = Toml.ToModel<ConfigRoot>(configStr);
         }
-
         public Config Reload()
         {
             var configStr = File.ReadAllText(ConfigPath);
-            UpdaterConfig = Toml.ToModel<UpdaterConfig>(configStr);
+            Root = Toml.ToModel<ConfigRoot>(configStr);
             return this;
         }
+        public string GetApiRoot => Root.Api.ApiRoot;
+        public string GetUploadEndpoint => Root.Api.UploadEndpoint;
+        public string GetFetchSamplesEndpoint => Root.Api.FetchSamplesEndpoint;
+        public string GetUploadBucketEndpoint => Root.Api.UploadBucketEndpoint;
     }
 }

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tznRgYzKfsUHIhuDq3cL8xhQ/6x3UuNBAKKEnZR1hwLjypeGlrtno8HbcqKVFx2sgpaRO7jm3oeVuRPk0ZZRhw==",
+  "dgSpecHash": "mwPtH3s2AhQqT6V4nUK4ceMoSdKF36KfuDy90rgt0tf8x1o2mWmVFEYrNTaNA7UEPaPLBlIlf//Sdx547kYeRw==",
   "success": true,
-  "projectFilePath": "E:\\workspace\\projects\\project\\PhotoApi\\Sandbox\\Sandbox.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "J:\\Projects\\PhotoApi\\Sandbox\\Sandbox.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\megaTechart\\.nuget\\packages\\tomlyn\\0.16.2\\tomlyn.0.16.2.nupkg.sha512"
+  ],
   "logs": []
 }

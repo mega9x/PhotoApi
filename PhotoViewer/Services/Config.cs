@@ -1,25 +1,37 @@
-﻿using Models.Config;
+﻿using ConstStr;
+using Models.Config.Fontend;
 using Tomlyn;
 
 namespace PhotoViewer.Services
 {
     public class Config
     {
-        public FontendConfig FontendConfig { get; init; }
+        public const string ConfigPath = $"{FontendConfigPath.ConfigRoot}/{FontendConfigPath.ConfigName}";
+        private ConfigRoot ConfigRoot { get; set; }
         public Config()
         {
-            if (!Directory.Exists(ConstStr.FontendConfig.ConfigRoot))
+            if (!Directory.Exists(FontendConfigPath.ConfigRoot))
             {
-                Directory.CreateDirectory(ConstStr.FontendConfig.ConfigRoot);
+                Directory.CreateDirectory(FontendConfigPath.ConfigRoot);
             }
-            if (!File.Exists(ConstStr.FontendConfig.GetConfigPath()))
+            if (!File.Exists(FontendConfigPath.GetConfigPath()))
             {
-                FontendConfig = new FontendConfig();
-                File.WriteAllText(ConstStr.FontendConfig.GetConfigPath(), Toml.FromModel(FontendConfig));
+                ConfigRoot = new ConfigRoot();
+                File.WriteAllText(FontendConfigPath.GetConfigPath(), Toml.FromModel(ConfigRoot));
                 return;
             }
-            var toml = File.ReadAllText(ConstStr.FontendConfig.GetConfigPath());
-            FontendConfig = Toml.ToModel<FontendConfig>(toml);
+            var toml = File.ReadAllText(FontendConfigPath.GetConfigPath());
+            ConfigRoot = Toml.ToModel<ConfigRoot>(toml);
         }
+        public Config Reload()
+        {
+            var configStr = File.ReadAllText(ConfigPath);
+            ConfigRoot = Toml.ToModel<ConfigRoot>(configStr);
+            return this;
+        }
+        public string GetApiRoot => ConfigRoot.Api.ApiRoot;
+        public string GetPhotoEndpoint => ConfigRoot.Api.GetPhotoEndpoint;
+        public string GetRandomPhotoEndpoint => ConfigRoot.Api.GetRandomPhotoEndpoint;
+
     }
 }

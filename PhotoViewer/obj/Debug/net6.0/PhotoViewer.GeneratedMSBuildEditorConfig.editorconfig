@@ -9,53 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PhotoViewer
 build_property.RootNamespace = PhotoViewer
-build_property.ProjectDir = E:\workspace\projects\project\PhotoApi\PhotoViewer\
+build_property.ProjectDir = J:\Projects\PhotoApi\PhotoViewer\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\workspace\projects\project\PhotoApi\PhotoViewer
+build_property.MSBuildProjectDirectory = J:\Projects\PhotoApi\PhotoViewer
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/App.razor]
+[J:/Projects/PhotoApi/PhotoViewer/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Pages/FetchData.razor]
+[J:/Projects/PhotoApi/PhotoViewer/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Pages/GetPhotos.razor]
+[J:/Projects/PhotoApi/PhotoViewer/Pages/GetPhotos.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2V0UGhvdG9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Pages/Index.razor]
+[J:/Projects/PhotoApi/PhotoViewer/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Shared/SurveyPrompt.razor]
+[J:/Projects/PhotoApi/PhotoViewer/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/_Imports.razor]
+[J:/Projects/PhotoApi/PhotoViewer/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Shared/MainLayout.razor]
+[J:/Projects/PhotoApi/PhotoViewer/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-u3p47lc1n2
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Shared/NavMenu.razor]
+[J:/Projects/PhotoApi/PhotoViewer/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-2es42a8yz9
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Pages/Error.cshtml]
+[J:/Projects/PhotoApi/PhotoViewer/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Pages/_Host.cshtml]
+[J:/Projects/PhotoApi/PhotoViewer/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/workspace/projects/project/PhotoApi/PhotoViewer/Pages/_Layout.cshtml]
+[J:/Projects/PhotoApi/PhotoViewer/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

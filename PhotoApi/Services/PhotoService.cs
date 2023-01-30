@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Security.Cryptography;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
 using ConstStr;
 using Models;
+using System.Security.Cryptography;
+using System.Text.Json;
 
 namespace PhotoApi.Services
 {
@@ -17,8 +12,8 @@ namespace PhotoApi.Services
         public ILogger<PhotoService> Logger { get; set; }
         public PhotoService(ILogger<PhotoService> logger)
         {
-            if(!File.Exists(BackendConfig.ImgPath)) File.Create(BackendConfig.ImgPath).Close();
-            var allTextOfPhotoLists = File.ReadAllText(BackendConfig.ImgPath);
+            if (!File.Exists(BackendConfigPath.ImgPath)) File.Create(BackendConfigPath.ImgPath).Close();
+            var allTextOfPhotoLists = File.ReadAllText(BackendConfigPath.ImgPath);
             try
             {
                 _photoRepository = (JsonSerializer.Deserialize<IEnumerable<PhotoCategoryBucket>>(allTextOfPhotoLists) ??
@@ -86,10 +81,10 @@ namespace PhotoApi.Services
         /// </summary>
         public void Save()
         {
-            File.WriteAllText(BackendConfig.ArchiveFile.Replace("date", DateTime.Today.ToString($"yyyy-M-d dddd {RandomNumberGenerator.GetInt32(0, 9999999)}")), JsonSerializer.Serialize(_photoRepository));
+            File.WriteAllText(BackendConfigPath.ArchiveFile.Replace("date", DateTime.Today.ToString($"yyyy-M-d dddd {RandomNumberGenerator.GetInt32(0, 9999999)}")), JsonSerializer.Serialize(_photoRepository));
             _photoRepository = _newPhotoRepository.ToList();
-            File.Delete(BackendConfig.ImgPath);
-            File.WriteAllText(BackendConfig.ImgPath, JsonSerializer.Serialize(_photoRepository));
+            File.Delete(BackendConfigPath.ImgPath);
+            File.WriteAllText(BackendConfigPath.ImgPath, JsonSerializer.Serialize(_photoRepository));
             _newPhotoRepository.Clear();
         }
         /// <summary>

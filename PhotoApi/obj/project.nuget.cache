@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "dVjkqcLc9+77pEzCVZJvp6PB29swPXTzLWbW3WjESdUkDl3LmQzMN2r4NrdrwwGXBihhl8pvps+7kLmSD8ca+w==",
+  "dgSpecHash": "ED/16GdfS/3GoIOMUcf58TIIson0Igo6YwFgFCHEIDtjUUcsavciu+ZXccH5NulNqYoXc1p5YDBRxTvYGsypTw==",
   "success": true,
-  "projectFilePath": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
+  "projectFilePath": "J:\\Projects\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\YK\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\YK\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
-    "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
-    "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "C:\\Users\\YK\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
-    "C:\\Users\\YK\\.nuget\\packages\\tomlyn\\0.16.2\\tomlyn.0.16.2.nupkg.sha512"
+    "C:\\Users\\megaTechart\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\megaTechart\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\megaTechart\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\megaTechart\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\megaTechart\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\megaTechart\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "C:\\Users\\megaTechart\\.nuget\\packages\\tomlyn\\0.16.2\\tomlyn.0.16.2.nupkg.sha512"
   ],
   "logs": []
 }

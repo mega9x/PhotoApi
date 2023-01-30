@@ -290,23 +290,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\YK\\.nuget\\packages\\": {},
+    "C:\\Users\\megaTechart\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
+      "projectUniqueName": "J:\\Projects\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
       "projectName": "PhotoApi",
-      "projectPath": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
-      "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
-      "outputPath": "E:\\workspace\\projects\\project\\PhotoApi\\PhotoApi\\obj\\",
+      "projectPath": "J:\\Projects\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
+      "packagesPath": "C:\\Users\\megaTechart\\.nuget\\packages\\",
+      "outputPath": "J:\\Projects\\PhotoApi\\PhotoApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\megaTechart\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -322,11 +322,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\workspace\\projects\\project\\PhotoApi\\ConstStr\\ConstStr.csproj": {
-              "projectPath": "E:\\workspace\\projects\\project\\PhotoApi\\ConstStr\\ConstStr.csproj"
+            "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj": {
+              "projectPath": "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj"
             },
-            "E:\\workspace\\projects\\project\\PhotoApi\\Models\\Models.csproj": {
-              "projectPath": "E:\\workspace\\projects\\project\\PhotoApi\\Models\\Models.csproj"
+            "J:\\Projects\\PhotoApi\\Models\\Models.csproj": {
+              "projectPath": "J:\\Projects\\PhotoApi\\Models\\Models.csproj"
             }
           }
         }

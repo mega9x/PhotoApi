@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models.Config
+﻿namespace Models.Config.Fontend
 {
-    public class FontendConfig
+    public class ApiConfig
     {
         public string ApiRoot { get; init; } = "http://127.0.0.1";
         public string GetPhotoEndpoint { get; init; } = "/photo/getphoto";

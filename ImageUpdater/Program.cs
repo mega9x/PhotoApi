@@ -1,29 +1,23 @@
-﻿using System.ComponentModel.Design;
-using System.Linq.Expressions;
-using System.Net;
-using System.Net.Mime;
-using System.Runtime.CompilerServices;
-using System.Net.Http.Json;
-using System.Text.Json;
-using ConstStr;
+﻿using ConstStr;
 using ImageUpdater;
 using Models;
 using Models.Request;
 using Models.Response;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using Tomlyn;
+using System.Net.Http.Json;
+using System.Text.Json;
 
 // 获取配置
-var config = Config.Instance.UpdaterConfig;
-var client = new HttpClient()
+var config = Config.Instance;
+var apiClient = new HttpClient()
 {
-    BaseAddress = new Uri(config.ApiRoot),
+    BaseAddress = new Uri(config.GetApiRoot),
 };
 // 图片组列表
 // var bucketList = (await FetchSamples(client, config, 20)).ToList();
 var bucketList = new List<PhotoCategoryBucket>();
-var dir = new DirectoryInfo(UpdaterConfig.ImageRoot);
+var dir = new DirectoryInfo(UpdaterConfigPath.ImageRoot);
 var child = dir.GetFiles();
 if (child.Any())
 {
@@ -102,7 +96,7 @@ foreach (var bucket in bucketList)
                 {
                     OpenButton = driver.FindElements(By.CssSelector("[class='Button2 Button2_size_m Button2_type_link Button2_view_default Button2_width_max MMViewerButtons-OpenImage']"));  //灰色的Oen Button按钮元素
                 }
-                
+
                 var originalLink = OpenButton[0].GetAttribute("href");
                 var shitLink = img[0].GetAttribute("src");
                 if (!originalLink.Contains(".jpg") && !originalLink.Contains(".png")) // 这样好
@@ -139,7 +133,7 @@ foreach (var bucket in bucketList)
     }
     // 上传 bucket
     Console.WriteLine($"目前共爬取 {photosCount} 张图片 上传中");
-    var response = await client.PostAsJsonAsync(config.UploadBucketEndpoint, uploadRequest);
+    var response = await apiClient.PostAsJsonAsync(config.GetUploadBucketEndpoint, uploadRequest);
     if (!response.IsSuccessStatusCode)
     {
         Console.WriteLine($"发生未知错误于: {bucket.Name}-{bucket.Gender}-{bucket.Age}");
@@ -178,16 +172,16 @@ async Task<bool> SearchImage(string url, IWebDriver driver)
     return true;
 }
 // 图片上传
-async Task<HttpResponseMessage> ImageUpload(HttpClient client, UpdaterConfig config, IEnumerable<PhotoCategoryBucket> list)
+async Task<HttpResponseMessage> ImageUpload(IEnumerable<PhotoCategoryBucket> list)
 {
-    var response = await client.PostAsJsonAsync<IEnumerable<PhotoCategoryBucket>>(config.UploadEndpoint, list);
+    var response = await apiClient.PostAsJsonAsync<IEnumerable<PhotoCategoryBucket>>(config.GetUploadEndpoint, list);
     return response;
 }
 
 // 样本获取 
-async Task<IEnumerable<PhotoCategoryBucket>> FetchSamples(HttpClient client, UpdaterConfig config, int num)
+async Task<IEnumerable<PhotoCategoryBucket>> FetchSamples(int num)
 {
-    var response = await client.GetFromJsonAsync<IEnumerable<PhotoCategoryBucket>>($"{config.FetchSamplesEndpoint}?eachNum={num}");
+    var response = await apiClient.GetFromJsonAsync<IEnumerable<PhotoCategoryBucket>>($"{config.GetFetchSamplesEndpoint}?eachNum={num}");
     return response ?? new List<PhotoCategoryBucket>();
 }
 // 是否继续在上面就判断了，只需要判断是不是最后一个就可以，这个继续不继续已经包含在请求里面了

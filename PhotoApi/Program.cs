@@ -1,18 +1,17 @@
-using System.IO;
 using ConstStr;
 using PhotoApi.Services;
 
-if (!Directory.Exists(BackendConfig.LIB_ROOT))
+if (!Directory.Exists(BackendConfigPath.LIB_ROOT))
 {
-    Directory.CreateDirectory(BackendConfig.LIB_ROOT);
+    Directory.CreateDirectory(BackendConfigPath.LIB_ROOT);
 }
-if (!Directory.Exists(BackendConfig.CONFIG_ROOT))
+if (!Directory.Exists(BackendConfigPath.CONFIG_ROOT))
 {
-    Directory.CreateDirectory(BackendConfig.CONFIG_ROOT);
+    Directory.CreateDirectory(BackendConfigPath.CONFIG_ROOT);
 }
-if (!Directory.Exists(BackendConfig.ArchivePath))
+if (!Directory.Exists(BackendConfigPath.ArchivePath))
 {
-    Directory.CreateDirectory(BackendConfig.ArchivePath);
+    Directory.CreateDirectory(BackendConfigPath.ArchivePath);
 }
 var builder = WebApplication.CreateBuilder(args);
 

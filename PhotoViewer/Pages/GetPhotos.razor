@@ -160,16 +160,16 @@
     async Task FetchPhotos()
     {
         var client = new HttpClient();
-        client.BaseAddress = new Uri(Config.FontendConfig.ApiRoot);
-        var response = await client.PostAsJsonAsync<PhotoRequest>(Config.FontendConfig.GetPhotoEndpoint, Request);
+        client.BaseAddress = new Uri(Config.GetApiRoot);
+        var response = await client.PostAsJsonAsync<PhotoRequest>(Config.GetPhotoEndpoint, Request);
         _categoryBucket = await response.Content.ReadFromJsonAsync<PhotoCategoryBucket>() ?? new();
     }
 
     async Task FetchRandomPhotos()
     {
         var client = new HttpClient();
-        client.BaseAddress = new Uri(Config.FontendConfig.ApiRoot);
-        var response = await client.GetFromJsonAsync<List<string>>($"{Config.FontendConfig.GetRandomPhotoEndpoint}?{Request.Num}");
+        client.BaseAddress = new Uri(Config.GetApiRoot);
+        var response = await client.GetFromJsonAsync<List<string>>($"{Config.GetRandomPhotoEndpoint}?{Request.Num}");
         _categoryBucket = new PhotoCategoryBucket
         {
             Links = response ?? new List<string>(),
