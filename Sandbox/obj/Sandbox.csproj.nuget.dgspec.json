@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "J:\\Projects\\PhotoApi\\Sandbox\\Sandbox.csproj": {}
+    "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Sandbox\\Sandbox.csproj": {}
   },
   "projects": {
-    "J:\\Projects\\PhotoApi\\Sandbox\\Sandbox.csproj": {
+    "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Sandbox\\Sandbox.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\Projects\\PhotoApi\\Sandbox\\Sandbox.csproj",
+        "projectUniqueName": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Sandbox\\Sandbox.csproj",
         "projectName": "Sandbox",
-        "projectPath": "J:\\Projects\\PhotoApi\\Sandbox\\Sandbox.csproj",
-        "packagesPath": "C:\\Users\\megaTechart\\.nuget\\packages\\",
-        "outputPath": "J:\\Projects\\PhotoApi\\Sandbox\\obj\\",
+        "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Sandbox\\Sandbox.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Sandbox\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\megaTechart\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

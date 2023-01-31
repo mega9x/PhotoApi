@@ -31,6 +31,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.Environment.ContentRootPath = BasePath.ExePath;
+
+app.Environment.WebRootPath = Path.Combine(BasePath.ExePath, "wwwroot");
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

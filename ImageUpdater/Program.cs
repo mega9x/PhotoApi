@@ -7,6 +7,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Net.Http.Json;
 using System.Text.Json;
+using WebDriverManager.DriverConfigs.Impl;
+using WebDriverManager.Helpers;
 
 // 获取配置
 var config = Config.Instance;
@@ -15,8 +17,8 @@ var apiClient = new HttpClient()
     BaseAddress = new Uri(config.GetApiRoot),
 };
 // 图片组列表
-// var bucketList = (await FetchSamples(client, config, 20)).ToList();
-var bucketList = new List<PhotoCategoryBucket>();
+var bucketList = (await FetchSamples(20)).ToList();
+// var bucketList = new List<PhotoCategoryBucket>();
 var dir = new DirectoryInfo(UpdaterConfigPath.ImageRoot);
 var child = dir.GetFiles();
 if (child.Any())
@@ -24,18 +26,18 @@ if (child.Any())
     // 读取图片链接
     foreach (var c in child)
     {
-        var split = c.Name.Split("-");
+        var preSplit = c.Name.Split(".")[0];
+        var split = preSplit.Split("-");
         var key = split[0];
         var gender = split[1];
         var age = split[2];
         var imageList = File.ReadAllLines(c.FullName);
         // 合并同类项
-        if (!imageList.Any()) continue;
-        // var found = bucketList.First(x => x.Age == age && x.Gender == gender && x.Name == key);
-        // if (found is not null)
-        // {
-        //     found.Links.AddRange(imageList);
-        // }
+        var found = bucketList.FirstOrDefault(x => x.Age == age && x.Gender == gender && x.Name == key);
+        if (found is not null)
+        {
+            found.Links.AddRange(imageList);
+        }
         else
         {
             var photoList = new PhotoCategoryBucket
@@ -54,14 +56,13 @@ if (child.Any())
 Console.WriteLine("读取成功. 开始爬取.");
 var photosCount = 0;
 var driver = new ChromeDriver();
-
 // 读取分组
 foreach (var bucket in bucketList)
 {
     var originalList = new List<string>(bucket.Links);
     foreach (var link in originalList)
     {
-        var areYouOk = await SearchImage(link, driver);
+        var areYouOk = await SearchImage(link, driver, $"{bucket.Name} {bucket.Gender} {bucket.Age}");
         if (!areYouOk)
         {
             continue;
@@ -133,11 +134,25 @@ foreach (var bucket in bucketList)
     }
     // 上传 bucket
     Console.WriteLine($"目前共爬取 {photosCount} 张图片 上传中");
-    var response = await apiClient.PostAsJsonAsync(config.GetUploadBucketEndpoint, uploadRequest);
-    if (!response.IsSuccessStatusCode)
+    var timeTried = 0;
+    while (timeTried <=30)
     {
-        Console.WriteLine($"发生未知错误于: {bucket.Name}-{bucket.Gender}-{bucket.Age}");
-        Console.WriteLine(response.StatusCode);
+        timeTried++;
+        try
+        {
+            var response = await apiClient.PostAsJsonAsync(config.GetUploadBucketEndpoint, uploadRequest);
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+            break;
+        }
+        catch(Exception exception)
+        {
+            Console.WriteLine($"上传失败. 第 {timeTried} 次重试");
+            Console.WriteLine(exception.Message);
+        }
+    }
+    if (timeTried >= 30)
+    {
+        Console.WriteLine($"发生未知错误于: {bucket.Name}-{bucket.Gender}-{bucket.Age}, 已跳过");
     }
 }
 Console.WriteLine($"共爬取 {photosCount} 张图片");
@@ -146,17 +161,19 @@ Console.WriteLine($"共爬取 {photosCount} 张图片");
 // Console.WriteLine($"爬取完毕. 服务器响应: {await response.Content.ReadAsStringAsync()}");
 Console.Read();
 
-async Task<bool> SearchImage(string url, IWebDriver driver)
+async Task<bool> SearchImage(string url, IWebDriver driver, string keyword)
 {
     while (driver.Url.Contains("showcaptcha"))
     {
         await Task.Delay(1000);
     }
     var client = new HttpClient();
-    string response;
+    var response = "";
+    var ImgUrl = new YandexImgResponse();
     try
     {
         response = await client.GetStringAsync("https://yandex.com/images-apphost/image-download?url=" + url);
+        ImgUrl = JsonSerializer.Deserialize<YandexImgResponse>(response);
     }
     catch (Exception e)
     {
@@ -165,8 +182,7 @@ async Task<bool> SearchImage(string url, IWebDriver driver)
         Console.WriteLine($"地址: {url}");
         return false;
     }
-    var ImgUrl = JsonSerializer.Deserialize<YandexImgResponse>(response);
-    driver.Navigate().GoToUrl($"https://yandex.com/images/search?family=yes&rpt=imageview&url={ImgUrl.Uri}");
+    driver.Navigate().GoToUrl($"https://yandex.com/images/search?family=yes&isize=medium&iorient=square&rpt=imageview&text={keyword}&url={ImgUrl.Uri}");
     await Task.Delay(1000);
     driver.Navigate().GoToUrl($"{driver.Url}&cbir_page=similar");
     return true;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Mq62IEHIH8YXfiU7MJKlny4ivpyN60eWVJD6kNVgwJEp1fu4+Mnt8wigeBz7L1jIgklaGeKP46DbYNQdz6WtAQ==",
+  "dgSpecHash": "HHNo/Dx/pJgt0ue+Ezj44wxKcJZQwolhrsKxCx1Ha3p8IzlxxAr9dMXd4VeXjCCkgA99vRTgLRa2NjuSXKIDKQ==",
   "success": true,
-  "projectFilePath": "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj",
+  "projectFilePath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

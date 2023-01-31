@@ -1,11 +1,11 @@
-﻿@page "/counter"
+﻿@page "/getphotos"
 @using PhotoViewer.Services
 @using Models
 @using ConstStr
 @using System.Security.Cryptography
 @inject Config Config
 
-<PageTitle>Counter</PageTitle>
+<PageTitle>获取靓照</PageTitle>
 
 <div id="app">
     <h1 id="title">* 我是外国佬.jpg</h1>
@@ -139,7 +139,7 @@
     async Task LoadImages()
     {
         Loaded = false;
-        if (!(Request.Age.Any() && Request.Age.Any()))
+        if (!(Request.Age.Any() && Request.Gender.Any()))
         {
             await FetchRandomPhotos();
             Loaded = true;
@@ -169,7 +169,7 @@
     {
         var client = new HttpClient();
         client.BaseAddress = new Uri(Config.GetApiRoot);
-        var response = await client.GetFromJsonAsync<List<string>>($"{Config.GetRandomPhotoEndpoint}?{Request.Num}");
+        var response = await client.GetFromJsonAsync<List<string>>($"{Config.GetRandomPhotoEndpoint}?num=={Request.Num}");
         _categoryBucket = new PhotoCategoryBucket
         {
             Links = response ?? new List<string>(),

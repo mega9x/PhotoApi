@@ -1,3 +1,4 @@
+using ConstStr;
 using PhotoViewer.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.Environment.ContentRootPath = BasePath.ExePath;
+
+app.Environment.WebRootPath = Path.Combine(BasePath.ExePath, "wwwroot");
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();

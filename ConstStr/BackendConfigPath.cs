@@ -8,6 +8,7 @@ public class BackendConfigPath
     #endregion
     #region Images
     public const string ImgPath = $"{LIB_ROOT}/Images.json";
+    public const string DatabasePath = $"{LIB_ROOT}/Image.db";
     public const string ArchivePath = $"{LIB_ROOT}/归档";
     public const string ArchiveFile = $"{ArchivePath}/images_date.json";
     #endregion

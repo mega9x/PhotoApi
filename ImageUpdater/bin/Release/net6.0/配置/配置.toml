@@ -1,0 +1,7 @@
+[api]
+api_root = "http://127.0.0.1"
+upload_endpoint = "/Photo/upload"
+upload_bucket_endpoint = "/photo/UploadByBucket"
+fetch_samples_endpoint = "/Photo/GetSamples"
+[general]
+chrome_version = 104

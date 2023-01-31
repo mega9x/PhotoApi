@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "J:\\Projects\\PhotoApi\\PhotoApi\\PhotoApi.csproj": {}
+    "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\PhotoApi\\PhotoApi.csproj": {}
   },
   "projects": {
-    "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj": {
+    "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj",
+        "projectUniqueName": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj",
         "projectName": "ConstStr",
-        "projectPath": "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj",
-        "packagesPath": "C:\\Users\\megaTechart\\.nuget\\packages\\",
-        "outputPath": "J:\\Projects\\PhotoApi\\ConstStr\\obj\\",
+        "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\megaTechart\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -64,20 +64,20 @@
         }
       }
     },
-    "J:\\Projects\\PhotoApi\\Models\\Models.csproj": {
+    "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\Projects\\PhotoApi\\Models\\Models.csproj",
+        "projectUniqueName": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "J:\\Projects\\PhotoApi\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\megaTechart\\.nuget\\packages\\",
-        "outputPath": "J:\\Projects\\PhotoApi\\Models\\obj\\",
+        "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\megaTechart\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -93,8 +93,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj": {
-                "projectPath": "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj"
+              "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj"
               }
             }
           }
@@ -128,20 +128,20 @@
         }
       }
     },
-    "J:\\Projects\\PhotoApi\\PhotoApi\\PhotoApi.csproj": {
+    "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\PhotoApi\\PhotoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\Projects\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
+        "projectUniqueName": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
         "projectName": "PhotoApi",
-        "projectPath": "J:\\Projects\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
-        "packagesPath": "C:\\Users\\megaTechart\\.nuget\\packages\\",
-        "outputPath": "J:\\Projects\\PhotoApi\\PhotoApi\\obj\\",
+        "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\PhotoApi\\PhotoApi.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\PhotoApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\megaTechart\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -157,11 +157,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj": {
-                "projectPath": "J:\\Projects\\PhotoApi\\ConstStr\\ConstStr.csproj"
+              "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj"
               },
-              "J:\\Projects\\PhotoApi\\Models\\Models.csproj": {
-                "projectPath": "J:\\Projects\\PhotoApi\\Models\\Models.csproj"
+              "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\Models.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\Models.csproj"
               }
             }
           }
@@ -176,6 +176,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "LiteDB": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

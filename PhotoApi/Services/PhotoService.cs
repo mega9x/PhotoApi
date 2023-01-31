@@ -1,29 +1,18 @@
 using ConstStr;
 using Models;
 using System.Security.Cryptography;
-using System.Text.Json;
+using LiteDB;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace PhotoApi.Services
 {
     public class PhotoService
     {
-        private List<PhotoCategoryBucket> _photoRepository = new();
-        private List<PhotoCategoryBucket> _newPhotoRepository = new();
+        private LiteDatabase _photoRepository = new(BackendConfigPath.DatabasePath);
+        private readonly string _collectionName = "photos";
         public ILogger<PhotoService> Logger { get; set; }
         public PhotoService(ILogger<PhotoService> logger)
         {
-            if (!File.Exists(BackendConfigPath.ImgPath)) File.Create(BackendConfigPath.ImgPath).Close();
-            var allTextOfPhotoLists = File.ReadAllText(BackendConfigPath.ImgPath);
-            try
-            {
-                _photoRepository = (JsonSerializer.Deserialize<IEnumerable<PhotoCategoryBucket>>(allTextOfPhotoLists) ??
-                                    Array.Empty<PhotoCategoryBucket>()).ToList();
-            }
-            catch
-            {
-                // ignore
-                _photoRepository = new List<PhotoCategoryBucket>();
-            }
             Logger = logger;
         }
         /// <summary>
@@ -33,13 +22,17 @@ namespace PhotoApi.Services
         /// <returns></returns>
         public IEnumerable<string> GetPhotos(PhotoRequest request)
         {
-            var result = _photoRepository.First(x => (x.Age.Contains(request.Age) && request.Age != string.Empty) &&
-            (x.Gender.Contains(request.Gender) && request.Gender != string.Empty) &&
-                                                (x.Name.Contains(request.Name) && request.Name != string.Empty)) ?? _photoRepository[RandomNumberGenerator.GetInt32(0, _photoRepository.Count)];
+            var result = _photoRepository.GetCollection<PhotoCategoryBucket>(_collectionName);
+            var all = result.Query();
+            var query = all.Where(x => (x.Age.Contains(request.Age) && request.Age != string.Empty) &&
+                                       (x.Gender.Contains(request.Gender) && request.Gender != string.Empty) &&
+                                       (x.Name.Contains(request.Name) && request.Name != string.Empty));
+            PhotoCategoryBucket bucket;
+            bucket = query.Count() <= 0 ? all.ToArray()[RandomNumberGenerator.GetInt32(0, all.Count())] : query.First();
             var photoList = new List<string>();
             for (var i = 1; i <= request.Num; i++)
             {
-                var l = result.Links[RandomNumberGenerator.GetInt32(0, result.Links.Count)];
+                var l = bucket.Links[RandomNumberGenerator.GetInt32(0, bucket.Links.Count)];
                 photoList.Add(l);
             }
             return photoList;
@@ -51,22 +44,15 @@ namespace PhotoApi.Services
         /// <returns></returns>
         public IEnumerable<string> GetPhotosRandomly(int num)
         {
-            var AllPhotos = _photoRepository.SelectMany(x => x.Links).ToArray();
+            var result = _photoRepository.GetCollection<PhotoCategoryBucket>(_collectionName);
+            var all = result.Query().ToList();
+            var allPhoto = all.SelectMany(x => x.Links).ToArray();
             var photoLinksList = new List<string>();
-            for (var i = 0; i < num; i++)
+            for (var i = 1; i < num; i++)
             {
-                photoLinksList.Add(AllPhotos[RandomNumberGenerator.GetInt32(0, photoLinksList.Count)]);
+                photoLinksList.Add(allPhoto[RandomNumberGenerator.GetInt32(0, allPhoto.Length)]);
             }
             return photoLinksList;
-        }
-        /// <summary>
-        /// 更新图片库
-        /// </summary>
-        /// <param name="list"></param>
-        public void UpdatePhotos(IEnumerable<PhotoCategoryBucket> list)
-        {
-            _newPhotoRepository = list.ToList();
-            Save();
         }
         /// <summary>
         /// 按桶更新
@@ -74,18 +60,21 @@ namespace PhotoApi.Services
         /// <param name="photoCategoryBucket"></param>
         public void AddBucketOneByOne(PhotoCategoryBucket photoCategoryBucket)
         {
-            _newPhotoRepository.Add(photoCategoryBucket);
-        }
-        /// <summary>
-        /// 保存
-        /// </summary>
-        public void Save()
-        {
-            File.WriteAllText(BackendConfigPath.ArchiveFile.Replace("date", DateTime.Today.ToString($"yyyy-M-d dddd {RandomNumberGenerator.GetInt32(0, 9999999)}")), JsonSerializer.Serialize(_photoRepository));
-            _photoRepository = _newPhotoRepository.ToList();
-            File.Delete(BackendConfigPath.ImgPath);
-            File.WriteAllText(BackendConfigPath.ImgPath, JsonSerializer.Serialize(_photoRepository));
-            _newPhotoRepository.Clear();
+            var result = _photoRepository.GetCollection<PhotoCategoryBucket>(_collectionName);
+            var queryed = result.Query().Where(x =>
+                x.Age == photoCategoryBucket.Age && x.Gender == photoCategoryBucket.Gender &&
+                x.Name == photoCategoryBucket.Name);
+            if (queryed.Count() <= 0)
+            {
+                result.Insert(photoCategoryBucket);
+                return;
+            }
+
+            var sameBucket = queryed.First();
+            var newLinks = photoCategoryBucket.Links;
+            newLinks.AddRange(sameBucket.Links);
+            sameBucket.Links = newLinks.Distinct().ToList();
+            result.Update(sameBucket);
         }
         /// <summary>
         /// 随机抽取样本
@@ -94,14 +83,15 @@ namespace PhotoApi.Services
         /// <returns></returns>
         public IEnumerable<PhotoCategoryBucket> BuildNewSamples(int num)
         {
+            var result = _photoRepository.GetCollection<PhotoCategoryBucket>(_collectionName).Query().ToList();
             var list = new List<PhotoCategoryBucket>();
-            if (!_photoRepository.Any()) return new List<PhotoCategoryBucket>();
-            foreach (var photo in _photoRepository)
+            if (!result.Any()) return new List<PhotoCategoryBucket>();
+            foreach (var photo in result)
             {
                 if (photo.Clone() is not PhotoCategoryBucket singleList) continue;
                 var requestNum = num > photo.Links.Count ? num : photo.Links.Count;
                 singleList.Links.Clear();
-                for (var i = 0; i <= requestNum; i++)
+                for (var i = 1; i <= requestNum; i++)
                 {
                     singleList.Links.Add(photo.Links[RandomNumberGenerator.GetInt32(0, photo.Links.Count)]);
                 }

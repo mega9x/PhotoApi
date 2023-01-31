@@ -1,0 +1,13 @@
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\PhotoViewer.exe
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\appsettings.Development.json
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\appsettings.json
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\global.json
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\PhotoViewer.dll
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\PhotoViewer.deps.json
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\PhotoViewer.runtimeconfig.json
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\PhotoViewer.pdb
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\Tomlyn.dll
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\ConstStr.dll
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\Models.dll
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\Models.pdb
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\ConstStr.pdb

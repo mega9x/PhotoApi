@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Tomlyn" Version="0.16.2" />
+    <PackageReference Include="LiteDB" Version="5.0.15" />
   </ItemGroup>
 
   <ItemGroup>

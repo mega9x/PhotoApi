@@ -1,3 +1,6 @@
-api_root = "http://127.0.0.1"
+[api]
+api_root = "http://photo.api.ykstudio.pro"
 upload_endpoint = "/Photo/upload"
+upload_bucket_endpoint = "/photo/UploadByBucket"
 fetch_samples_endpoint = "/Photo/GetSamples"
+[general]
