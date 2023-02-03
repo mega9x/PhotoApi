@@ -1,0 +1,3 @@
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoUpdate\obj\release\PhotoUpdate.csproj.AssemblyReference.cache
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoUpdate\obj\release\PhotoUpdate.csproj.SuggestedBindingRedirects.cache
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoUpdate\obj\release\PhotoUpdate.csproj.CoreCompileInputs.cache

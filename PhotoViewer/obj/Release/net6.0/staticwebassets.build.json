@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2UcRhwPcvURGhXhzYL4BQku7SWqaQwSh+1yo8zWSlCA=",
+  "Hash": "9vB2902HhZIaHH6CVRyzGARG2ciagLDgSZ2q/wkDIzE=",
   "Source": "PhotoViewer",
   "BasePath": "_content/PhotoViewer",
   "Mode": "Default",
@@ -270,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\PhotoViewer\\wwwroot\\js\\utils.js",
+      "SourceId": "PhotoViewer",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\PhotoViewer\\wwwroot\\",
+      "BasePath": "_content/PhotoViewer",
+      "RelativePath": "js/utils.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\utils.js"
     }
   ]
 }

@@ -1,0 +1,6 @@
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Sandbox\bin\Release\net6.0\publish\Sandbox.exe
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Sandbox\bin\Release\net6.0\publish\Sandbox.dll
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Sandbox\bin\Release\net6.0\publish\Sandbox.deps.json
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Sandbox\bin\Release\net6.0\publish\Sandbox.runtimeconfig.json
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Sandbox\bin\Release\net6.0\publish\Sandbox.pdb
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Sandbox\bin\Release\net6.0\publish\Tomlyn.dll

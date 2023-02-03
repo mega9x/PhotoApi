@@ -4,6 +4,7 @@
     {
         #region Root
         public const string ConfigRoot = "./config";
+        public const string TempRoot = "./tmp";
         #endregion
         public const string ConfigName = "config.toml";
         /// <summary>

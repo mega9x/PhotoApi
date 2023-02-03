@@ -1,0 +1,5 @@
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Models\bin\Release\net6.0\publish\Models.dll
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Models\bin\Release\net6.0\publish\Models.deps.json
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Models\bin\Release\net6.0\publish\Models.pdb
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Models\bin\Release\net6.0\publish\ConstStr.dll
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\Models\bin\Release\net6.0\publish\ConstStr.pdb

@@ -17,6 +17,7 @@ public class PhotoRequest
     /// 其他关键词
     /// </summary>
     public string? Name { get; set; } = "";
+
     /// <summary>
     /// 图片数量
     /// </summary>

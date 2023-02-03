@@ -6,6 +6,7 @@ E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\PhotoViewer.deps.json
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\PhotoViewer.runtimeconfig.json
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\PhotoViewer.pdb
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\SixLabors.ImageSharp.dll
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\Tomlyn.dll
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\ConstStr.dll
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\publish\Models.dll

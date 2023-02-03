@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Sandbox/1.0.0": {
+        "dependencies": {
+          "Tomlyn": "0.16.2"
+        },
+        "runtime": {
+          "Sandbox.dll": {}
+        }
+      },
+      "Tomlyn/0.16.2": {
+        "runtime": {
+          "lib/net6.0/Tomlyn.dll": {
+            "assemblyVersion": "0.16.0.0",
+            "fileVersion": "0.16.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Sandbox/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Tomlyn/0.16.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NVvOlecYWwhqQdE461UGHUeJ1t2DtGXU+L00LgtBTgWA16bUmMhUIRaCpSkRX5HqAeid/KlXmdH7Sul0mr6HJA==",
+      "path": "tomlyn/0.16.2",
+      "hashPath": "tomlyn.0.16.2.nupkg.sha512"
+    }
+  }
+}

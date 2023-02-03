@@ -105,3 +105,4 @@ E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\obj\release\net
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\obj\release\net6.0\PhotoViewer.pdb
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\obj\release\net6.0\PhotoViewer.genruntimeconfig.cache
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\obj\release\net6.0\ref\PhotoViewer.dll
+E:\workspace\projects\project\PhotoApi-Main\PhotoApi\PhotoViewer\bin\release\net6.0\SixLabors.ImageSharp.dll

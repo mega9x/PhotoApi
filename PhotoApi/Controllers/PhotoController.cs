@@ -55,13 +55,6 @@ public class PhotoController : Controller
         {
             num = 20;
         }
-        try
-        {
-            return Ok(_photoService.BuildNewSamples(num));
-        }
-        catch (Exception ex)
-        {
-            return BadRequest("无法获取采样");
-        }
+        return Ok(_photoService.BuildNewSamples(num));
     }
 }
