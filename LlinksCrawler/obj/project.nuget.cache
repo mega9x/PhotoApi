@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "5sPt6b1XnwsQznSgiVjrvy+JKuH8ZxtLavYDaEjs27suK8GIJlZI5DXO5fgS4r5RitjYwxtS475EUKylR392mg==",
+  "success": true,
+  "projectFilePath": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\LlinksCrawler\\LlinksCrawler.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\YK\\.nuget\\packages\\fizzler\\1.3.0\\fizzler.1.3.0.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\fizzler.systems.htmlagilitypack\\1.2.1\\fizzler.systems.htmlagilitypack.1.2.1.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
+  ],
+  "logs": []
+}

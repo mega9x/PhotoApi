@@ -1,0 +1,5 @@
+[photo_api]
+api = "http://127.0.0.1"
+get_photo_endpoint = "/photo/getphoto"
+get_photo_group_endpoint = "/photo/getphotogroup"
+get_random_photo_endpoint = "/photo/getrandomphoto"

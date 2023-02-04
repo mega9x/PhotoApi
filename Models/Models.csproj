@@ -16,11 +16,17 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="Config\Fontend\ApiConfig.cs" />
+      <None Include="Config\Fontend\PhotoApiConfig.cs" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="新文件夹\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Fizzler" Version="1.3.0" />
+      <PackageReference Include="Fizzler.Systems.HtmlAgilityPack" Version="1.2.1" />
+      <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
     </ItemGroup>
 
 </Project>

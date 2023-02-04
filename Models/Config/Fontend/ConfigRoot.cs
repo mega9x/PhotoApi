@@ -2,6 +2,6 @@
 {
     public class ConfigRoot
     {
-        public ApiConfig Api { get; set; } = new();
+        public PhotoApiConfig PhotoApi { get; set; } = new();
     }
 }

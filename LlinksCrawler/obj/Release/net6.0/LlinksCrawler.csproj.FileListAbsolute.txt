@@ -1,0 +1,17 @@
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\bin\release\net6.0\LlinksCrawler.deps.json
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\bin\release\net6.0\LlinksCrawler.dll
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\bin\release\net6.0\LlinksCrawler.pdb
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\bin\release\net6.0\ConstStr.dll
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\bin\release\net6.0\Models.dll
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\bin\release\net6.0\Models.pdb
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\bin\release\net6.0\ConstStr.pdb
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\LlinksCrawler.csproj.AssemblyReference.cache
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\LlinksCrawler.GeneratedMSBuildEditorConfig.editorconfig
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\LlinksCrawler.AssemblyInfoInputs.cache
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\LlinksCrawler.AssemblyInfo.cs
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\LlinksCrawler.csproj.CoreCompileInputs.cache
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\LlinksCrawler.csproj.CopyComplete
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\LlinksCrawler.dll
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\refint\LlinksCrawler.dll
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\LlinksCrawler.pdb
+E:\workspace\projects\project\Ykstudio-system\System\LlinksCrawler\obj\release\net6.0\ref\LlinksCrawler.dll

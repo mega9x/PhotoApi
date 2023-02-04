@@ -1,0 +1,97 @@
+﻿@using ConstStr
+@using System.IO.Compression
+@using SixLabors.ImageSharp
+@using SixLabors.ImageSharp.Processing
+@using Utils.PhotoUtils
+@inject IJSRuntime Js
+
+<div class="photo-container">
+    <img class="single-img" src="@Href" alt=""/>
+    <button class="download-btn" @onclick="SaveImage">下载</button>
+</div>
+
+@code {
+    [Parameter]
+    public string Href { get; set; }
+
+    async Task SaveImage()
+    {
+        var jpgFile = Path.Combine($"{FontendConfigPath.TempRoot}", $"{Guid.NewGuid()}.jpg");
+
+        try
+        {
+            try
+            {
+                using var image = await GetImageObject();
+                await image.SaveAsJpegAsync(jpgFile);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+            var file = File.OpenRead(jpgFile);
+            using var streamRef = new DotNetStreamReference(stream: file);
+            await Js.InvokeVoidAsync("downloadFileFromStream", $"靓照_{Guid.NewGuid()}.jpg", streamRef);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.ToString());
+        }
+        finally
+        {
+            File.Delete(jpgFile);
+        }
+    }
+
+    async Task<Image> GetImageObject()
+    {
+        var base64 = Href.Replace("data:image/png;base64,", "");
+        return await Image.LoadAsync(new MemoryStream(Convert.FromBase64String(base64)));
+    }
+}
+
+<style>
+    .photo-container {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 255px;
+        align-items: center;
+        background-color: #92a8c4;
+    }
+
+    .single-img {
+        height: 230px;
+        width: 200px;
+    }
+
+    .download-btn {
+        width: 150px;
+        border: 0px;
+        margin: 10px;
+        padding: 5px;
+        box-shadow: 1px 2px 4px 1px rgba(8, 8, 8, 0.2);
+        background-color: #649bda;
+        align-items: center;
+        color: rgb(238, 238, 238);
+        transition: 0.10s;
+        border-radius: 5px;
+        font-weight: 600;
+        font-family: '黑体', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .download-btn:hover {
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        background-color: #5e8ec5;
+        font-family: '黑体';
+        transform: scale(1.1);
+    }
+
+    .download-btn:active {
+        color: rgb(63, 63, 63);
+        background-color: #c0c0c0;
+        transform: scale(0.9);
+        box-shadow: 1px 3px 8px 1px rgba(8, 8, 8, 0.2);
+    }
+</style>

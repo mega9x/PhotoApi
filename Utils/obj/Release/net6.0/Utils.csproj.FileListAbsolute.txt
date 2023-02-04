@@ -1,0 +1,12 @@
+E:\workspace\projects\project\Ykstudio-system\System\Utils\bin\Release\net6.0\Utils.deps.json
+E:\workspace\projects\project\Ykstudio-system\System\Utils\bin\Release\net6.0\Utils.dll
+E:\workspace\projects\project\Ykstudio-system\System\Utils\bin\Release\net6.0\Utils.pdb
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\Utils.csproj.AssemblyReference.cache
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\Utils.GeneratedMSBuildEditorConfig.editorconfig
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\Utils.AssemblyInfoInputs.cache
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\Utils.AssemblyInfo.cs
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\Utils.csproj.CoreCompileInputs.cache
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\Utils.dll
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\refint\Utils.dll
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\Utils.pdb
+E:\workspace\projects\project\Ykstudio-system\System\Utils\obj\Release\net6.0\ref\Utils.dll

@@ -19,9 +19,20 @@ public class PhotoController : Controller
     }
     // 获取图片
     [HttpPost("GetPhoto")]
-    public ActionResult<IEnumerable<string>> GetPhoto(PhotoRequest request)
+    public async Task<ActionResult<IEnumerable<string>>> GetPhoto(PhotoRequest request)
     {
-        var photos = _photoService.GetPhotos(request);
+        var photos = await _photoService.GetPhotos(request);
+        if (!photos.Any())
+        {
+            return BadRequest("没有找到与查询匹配的图片");
+        }
+        return Ok(photos);
+    }
+    // 获取图片
+    [HttpPost("GetPhotoGroup")]
+    public async Task<ActionResult<IEnumerable<string>>> GetPhotoGroup(PhotoRequest request)
+    {
+        var photos = await _photoService.GetPhotoGroup(request);
         if (!photos.Any())
         {
             return BadRequest("没有找到与查询匹配的图片");
@@ -30,9 +41,9 @@ public class PhotoController : Controller
     }
     // 随机获取图片
     [HttpGet("GetRandomPhoto")]
-    public ActionResult<IEnumerable<string>> GetPhoto(int num)
+    public async Task<ActionResult<IEnumerable<string>>> GetPhoto(int num)
     {
-        var photos = _photoService.GetPhotosRandomly(num);
+        var photos = await _photoService.GetPhotosRandomly(num);
         if (!photos.Any())
         {
             return BadRequest("没有找到与查询匹配的图片");

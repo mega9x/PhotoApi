@@ -2,6 +2,49 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Fizzler/1.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Fizzler.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "Fizzler.Systems.HtmlAgilityPack/1.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Fizzler": "1.2.0",
+          "HtmlAgilityPack": "1.5.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Fizzler.Systems.HtmlAgilityPack.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.Systems.HtmlAgilityPack.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.46": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "related": ".deps.json;.pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "related": ".deps.json;.pdb;.xml"
+          }
+        }
+      },
       "ConstStr/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -15,6 +58,86 @@
     }
   },
   "libraries": {
+    "Fizzler/1.3.0": {
+      "sha512": "B5FdOC8YrFU6nUYnxF1UcGrt2dMBVaf9tnbiG/PD2gB8FyuoZj0WSGr7+OxdrjreyYu7L2pgPYpbNMFkot2otw==",
+      "type": "package",
+      "path": "fizzler/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "COPYING.txt",
+        "fizzler.1.3.0.nupkg.sha512",
+        "fizzler.nuspec",
+        "lib/netstandard1.0/Fizzler.dll",
+        "lib/netstandard1.0/Fizzler.pdb",
+        "lib/netstandard2.0/Fizzler.dll",
+        "lib/netstandard2.0/Fizzler.pdb"
+      ]
+    },
+    "Fizzler.Systems.HtmlAgilityPack/1.2.1": {
+      "sha512": "JVWdUgFd8KdsIoertmc9jgVc3eNpZmrXgk3rW91s0ymizAT3S/QresLY+bf+V8XO/kMy4mTV34h517g03fUqqw==",
+      "type": "package",
+      "path": "fizzler.systems.htmlagilitypack/1.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "COPYING.txt",
+        "fizzler.systems.htmlagilitypack.1.2.1.nupkg.sha512",
+        "fizzler.systems.htmlagilitypack.nuspec",
+        "lib/netstandard1.3/Fizzler.Systems.HtmlAgilityPack.dll",
+        "lib/netstandard1.3/Fizzler.Systems.HtmlAgilityPack.pdb",
+        "lib/netstandard2.0/Fizzler.Systems.HtmlAgilityPack.dll",
+        "lib/netstandard2.0/Fizzler.Systems.HtmlAgilityPack.pdb"
+      ]
+    },
+    "HtmlAgilityPack/1.11.46": {
+      "sha512": "dLMn4EVfJBHWmWK4Uh0XGD76FPLHI0qr2Tm0s1m/xmgiHb1JUb9zB8AzO8HtrkBBlMN6JfCUBYddhqC0hZNR+g==",
+      "type": "package",
+      "path": "htmlagilitypack/1.11.46",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "htmlagilitypack.1.11.46.nupkg.sha512",
+        "htmlagilitypack.nuspec",
+        "lib/Net35/HtmlAgilityPack.dll",
+        "lib/Net35/HtmlAgilityPack.pdb",
+        "lib/Net35/HtmlAgilityPack.xml",
+        "lib/Net40-client/HtmlAgilityPack.dll",
+        "lib/Net40-client/HtmlAgilityPack.pdb",
+        "lib/Net40-client/HtmlAgilityPack.xml",
+        "lib/Net40/HtmlAgilityPack.XML",
+        "lib/Net40/HtmlAgilityPack.dll",
+        "lib/Net40/HtmlAgilityPack.pdb",
+        "lib/Net45/HtmlAgilityPack.XML",
+        "lib/Net45/HtmlAgilityPack.dll",
+        "lib/Net45/HtmlAgilityPack.pdb",
+        "lib/NetCore45/HtmlAgilityPack.XML",
+        "lib/NetCore45/HtmlAgilityPack.dll",
+        "lib/NetCore45/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.3/HtmlAgilityPack.dll",
+        "lib/netstandard1.3/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.xml",
+        "lib/netstandard1.6/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.6/HtmlAgilityPack.dll",
+        "lib/netstandard1.6/HtmlAgilityPack.pdb",
+        "lib/netstandard1.6/HtmlAgilityPack.xml",
+        "lib/netstandard2.0/HtmlAgilityPack.deps.json",
+        "lib/netstandard2.0/HtmlAgilityPack.dll",
+        "lib/netstandard2.0/HtmlAgilityPack.pdb",
+        "lib/netstandard2.0/HtmlAgilityPack.xml",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.XML",
+        "lib/uap10.0/HtmlAgilityPack.dll",
+        "lib/uap10.0/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.pri"
+      ]
+    },
     "ConstStr/1.0.0": {
       "type": "project",
       "path": "../ConstStr/ConstStr.csproj",
@@ -23,7 +146,10 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ConstStr >= 1.0.0"
+      "ConstStr >= 1.0.0",
+      "Fizzler >= 1.3.0",
+      "Fizzler.Systems.HtmlAgilityPack >= 1.2.1",
+      "HtmlAgilityPack >= 1.11.46"
     ]
   },
   "packageFolders": {
@@ -33,11 +159,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\Models.csproj",
+      "projectUniqueName": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\Models.csproj",
+      "projectPath": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\Models\\Models.csproj",
       "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
-      "outputPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\obj\\",
+      "outputPath": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,16 +177,16 @@
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
+        "E:\\workspace\\projects\\nuget-package": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj": {
-              "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\ConstStr\\ConstStr.csproj"
+            "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\ConstStr\\ConstStr.csproj": {
+              "projectPath": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\ConstStr\\ConstStr.csproj"
             }
           }
         }
@@ -74,6 +200,20 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Fizzler": {
+            "target": "Package",
+            "version": "[1.3.0, )"
+          },
+          "Fizzler.Systems.HtmlAgilityPack": {
+            "target": "Package",
+            "version": "[1.2.1, )"
+          },
+          "HtmlAgilityPack": {
+            "target": "Package",
+            "version": "[1.11.46, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -90,7 +230,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

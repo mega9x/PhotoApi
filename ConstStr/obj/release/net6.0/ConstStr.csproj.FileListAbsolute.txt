@@ -34,3 +34,15 @@ E:\workspace\projects\project\PhotoApi-Main\PhotoApi\ConstStr\obj\release\net6.0
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\ConstStr\obj\release\net6.0\refint\ConstStr.dll
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\ConstStr\obj\release\net6.0\ConstStr.pdb
 E:\workspace\projects\project\PhotoApi-Main\PhotoApi\ConstStr\obj\release\net6.0\ref\ConstStr.dll
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\bin\release\net6.0\ConstStr.deps.json
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\bin\release\net6.0\ConstStr.dll
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\bin\release\net6.0\ConstStr.pdb
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\ConstStr.csproj.AssemblyReference.cache
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\ConstStr.GeneratedMSBuildEditorConfig.editorconfig
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\ConstStr.AssemblyInfoInputs.cache
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\ConstStr.AssemblyInfo.cs
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\ConstStr.csproj.CoreCompileInputs.cache
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\ConstStr.dll
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\refint\ConstStr.dll
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\ConstStr.pdb
+E:\workspace\projects\project\Ykstudio-system\System\ConstStr\obj\release\net6.0\ref\ConstStr.dll

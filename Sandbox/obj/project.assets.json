@@ -48,11 +48,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Sandbox\\Sandbox.csproj",
+      "projectUniqueName": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\Sandbox\\Sandbox.csproj",
       "projectName": "Sandbox",
-      "projectPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Sandbox\\Sandbox.csproj",
+      "projectPath": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\Sandbox\\Sandbox.csproj",
       "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
-      "outputPath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Sandbox\\obj\\",
+      "outputPath": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\Sandbox\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -66,8 +66,8 @@
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
+        "E:\\workspace\\projects\\nuget-package": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

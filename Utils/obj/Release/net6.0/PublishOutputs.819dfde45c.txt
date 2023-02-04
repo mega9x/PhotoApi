@@ -1,0 +1,4 @@
+E:\workspace\projects\project\Ykstudio-system\System\Utils\bin\Release\net6.0\publish\Utils.dll
+E:\workspace\projects\project\Ykstudio-system\System\Utils\bin\Release\net6.0\publish\Utils.deps.json
+E:\workspace\projects\project\Ykstudio-system\System\Utils\bin\Release\net6.0\publish\Utils.pdb
+E:\workspace\projects\project\Ykstudio-system\System\Utils\bin\Release\net6.0\publish\SixLabors.ImageSharp.dll

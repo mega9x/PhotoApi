@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JysjsQxEF9H0LNYWbEyfidX6Fb+LYi2P4hkxyN0VH1P0RzKPKYeTQhDbnpMhxHPLEaS05ebsNIkbt3e8r12kCA==",
+  "dgSpecHash": "HleXGpimORRfn4WxwXWgopMdvkR0aqX/e81YrpLFkBPL0cIDE1nChxJ0H2fpxIvhiqKU1/QGDzcvmqZNtZ4Qbw==",
   "success": true,
-  "projectFilePath": "E:\\workspace\\projects\\project\\PhotoApi-Main\\PhotoApi\\Models\\Models.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "E:\\workspace\\projects\\project\\Ykstudio-system\\System\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\YK\\.nuget\\packages\\fizzler\\1.3.0\\fizzler.1.3.0.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\fizzler.systems.htmlagilitypack\\1.2.1\\fizzler.systems.htmlagilitypack.1.2.1.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
+  ],
   "logs": []
 }

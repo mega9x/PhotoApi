@@ -11,11 +11,40 @@
           "ConstStr": "1.0.0",
           "LiteDB": "5.0.15",
           "Models": "1.0.0",
+          "SixLabors.ImageSharp": "2.1.3",
           "Swashbuckle.AspNetCore": "6.2.3",
           "Tomlyn": "0.16.2"
         },
         "runtime": {
           "PhotoApi.dll": {}
+        }
+      },
+      "Fizzler/1.3.0": {
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.dll": {
+            "assemblyVersion": "1.3.0.0",
+            "fileVersion": "1.3.0.0"
+          }
+        }
+      },
+      "Fizzler.Systems.HtmlAgilityPack/1.2.1": {
+        "dependencies": {
+          "Fizzler": "1.3.0",
+          "HtmlAgilityPack": "1.11.46"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Fizzler.Systems.HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.2.1.0",
+            "fileVersion": "1.2.1.0"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.46": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.46.0",
+            "fileVersion": "1.11.46.0"
+          }
         }
       },
       "LiteDB/5.0.15": {
@@ -27,11 +56,24 @@
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
+      "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.OpenApi/1.2.3": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {
             "assemblyVersion": "1.2.3.0",
             "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/2.1.3": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0",
+          "System.Text.Encoding.CodePages": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.3.0"
           }
         }
       },
@@ -73,6 +115,12 @@
           }
         }
       },
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {},
+      "System.Text.Encoding.CodePages/5.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0"
+        }
+      },
       "Tomlyn/0.16.2": {
         "runtime": {
           "lib/net6.0/Tomlyn.dll": {
@@ -88,7 +136,10 @@
       },
       "Models/1.0.0": {
         "dependencies": {
-          "ConstStr": "1.0.0"
+          "ConstStr": "1.0.0",
+          "Fizzler": "1.3.0",
+          "Fizzler.Systems.HtmlAgilityPack": "1.2.1",
+          "HtmlAgilityPack": "1.11.46"
         },
         "runtime": {
           "Models.dll": {}
@@ -101,6 +152,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Fizzler/1.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B5FdOC8YrFU6nUYnxF1UcGrt2dMBVaf9tnbiG/PD2gB8FyuoZj0WSGr7+OxdrjreyYu7L2pgPYpbNMFkot2otw==",
+      "path": "fizzler/1.3.0",
+      "hashPath": "fizzler.1.3.0.nupkg.sha512"
+    },
+    "Fizzler.Systems.HtmlAgilityPack/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JVWdUgFd8KdsIoertmc9jgVc3eNpZmrXgk3rW91s0ymizAT3S/QresLY+bf+V8XO/kMy4mTV34h517g03fUqqw==",
+      "path": "fizzler.systems.htmlagilitypack/1.2.1",
+      "hashPath": "fizzler.systems.htmlagilitypack.1.2.1.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.46": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dLMn4EVfJBHWmWK4Uh0XGD76FPLHI0qr2Tm0s1m/xmgiHb1JUb9zB8AzO8HtrkBBlMN6JfCUBYddhqC0hZNR+g==",
+      "path": "htmlagilitypack/1.11.46",
+      "hashPath": "htmlagilitypack.1.11.46.nupkg.sha512"
     },
     "LiteDB/5.0.15": {
       "type": "package",
@@ -116,12 +188,26 @@
       "path": "microsoft.extensions.apidescription.server/3.0.0",
       "hashPath": "microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512"
     },
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
+      "path": "microsoft.netcore.platforms/5.0.0",
+      "hashPath": "microsoft.netcore.platforms.5.0.0.nupkg.sha512"
+    },
     "Microsoft.OpenApi/1.2.3": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Nug3rO+7Kl5/SBAadzSMAVgqDlfGjJZ0GenQrLywJ84XGKO0uRqkunz5Wyl0SDwcR71bAATXvSdbdzPrYRYKGw==",
       "path": "microsoft.openapi/1.2.3",
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
+    },
+    "SixLabors.ImageSharp/2.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8yonNRWX3vUE9k29ta0Hbfa0AEc0hbDjSH/nZ3vOTJEXmY6hLnGsjDKoz96Z+AgOsrdkAu6PdL/Ebaf70aitzw==",
+      "path": "sixlabors.imagesharp/2.1.3",
+      "hashPath": "sixlabors.imagesharp.2.1.3.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.2.3": {
       "type": "package",
@@ -150,6 +236,20 @@
       "sha512": "sha512-bCRI87uKJVb4G+KURWm8LQrL64St04dEFZcF6gIM67Zc0Sr/N47EO83ybLMYOvfNdO1DCv8xwPcrz9J/VEhQ5g==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.2.3",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    },
+    "System.Text.Encoding.CodePages/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
+      "path": "system.text.encoding.codepages/5.0.0",
+      "hashPath": "system.text.encoding.codepages.5.0.0.nupkg.sha512"
     },
     "Tomlyn/0.16.2": {
       "type": "package",
